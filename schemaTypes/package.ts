@@ -42,26 +42,15 @@ const packageSchema = {
       name: 'images',
       title: 'Images',
       type: 'array',
-      of: [
-        {
-          type: 'object',
-          fields: [
-            { name: 'url', type: 'url', title: 'URL' },
-            { name: 'file', type: 'file', title: 'File' },
-          ],
-        },
-      ],
-      validation: Rule => Rule.required().min(3).error('Minimum of 3 images required'),
+      of: [{ type: 'image' }],
+      validation: (Rule) => Rule.required().error('Images are required'),
     }),
     defineField({
       name: 'coverImage',
       title: 'Cover Image',
-      type: 'object',
-      fields: [
-        { name: 'url', type: 'url', title: 'URL' },
-        { name: 'file', type: 'file', title: 'File' },
-      ],
-      validation: Rule => Rule.required().error('Cover Image is required'),
+      type: 'image',
+      options: { hotspot: true },
+      validation: (Rule) => Rule.required().error('Cover Image is required'),
     }),
     defineField({
       name: 'serviceType',
@@ -85,8 +74,6 @@ const packageSchema = {
       name: 'specialNote',
       title: 'Special Note',
       type: 'text',
-      validation: Rule => Rule.required(),
-      initialValue: 'Check-in time is 12:00 PM, checkout time is 11:59 AM. If you leave behind any items, please contact the receptionist.',
     }),
     defineField({
       name: 'includedServices',

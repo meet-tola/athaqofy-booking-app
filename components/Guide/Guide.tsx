@@ -2,9 +2,9 @@ import { Button } from "../ui/button"
 
 const Guide = () => {
   return (
-    <div className="flex flex-col items-center justify-center w-full p-12 space-y-8">
+    <div className="flex flex-col items-center justify-center w-full p-8 lg:p-20 space-y-8">
       <div className="text-center">
-        <h1 className="text-3xl font-bold text-gray-900">Steps for the Hajj Pilgrimage</h1>
+        <h1 className="text-3xl font-bold text-primary">Steps for the Hajj Pilgrimage</h1>
         <p className="text-gray-600">Perform Hajj following these steps, a sacred journey of devotion.</p>
       </div>
       <div className="grid gap-8 md:grid-cols-3">
