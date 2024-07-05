@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/select";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
+import { SearchIcon } from "lucide-react";
 
 type Props = {
   serviceTypeFilter: string;
@@ -39,7 +40,7 @@ const Search: FC<Props> = ({
   };
 
   const handleFilterClick = () => {
-    let query = '/packages?';
+    let query = "/packages?";
     if (serviceTypeFilter) {
       query += `serviceType=${serviceTypeFilter}&`;
     }
@@ -48,40 +49,36 @@ const Search: FC<Props> = ({
     }
     router.push(query);
   };
-
   return (
-    <div className="container md:mx-auto mx-[250px] flex flex-col md:flex-row gap-4 flex-wrap justify-between items-center py-4">
-      <div className="w-full md:w-1/3 lg:w-auto mb-4 md:mb-0">
-        <Label htmlFor="serviceType">Service Type</Label>
+    <div className="flex flex-col gap-4 w-full max-w-2xl mx-auto mb-2 px-10">
+      <div className="flex items-center gap-2">
         <Select value={serviceTypeFilter} onValueChange={handleServiceType}>
-          <SelectTrigger className="w-full md:w-[180px] mt-2">
+          <SelectTrigger className="w-[200px]">
             <SelectValue placeholder="Select a Service" />
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
-              <SelectLabel>Select a Service</SelectLabel>
               <SelectItem value="Hajj">Hajj</SelectItem>
               <SelectItem value="Umrah">Umrah</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>
+        <div className="relative flex-1">
+          <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+          <Input
+            type="search"
+            id="search"
+            placeholder="Search..."
+            value={searchQuery}
+            onChange={handleSearchQueryChange}
+            className="pl-10"
+          />
+        </div>
+        <Button onClick={handleFilterClick} className="rounded-md">Search</Button>
       </div>
-
-      <div className="w-full md:w-[50%] lg:w-auto mb-4 md:mb-0">
-        <Label htmlFor="search">Search</Label>
-        <Input
-          type="search"
-          id="search"
-          placeholder="Search..."
-          value={searchQuery}
-          onChange={handleSearchQueryChange}
-          className="w-full mt-2"
-        />
-      </div>
-
-      <Button type="button" onClick={handleFilterClick} className="w-full md:w-auto mt-2">
-        Search
-      </Button>
+      <p className="text-sm text-muted-foreground">
+        Find the perfect service for your needs. Search by category or keyword.
+      </p>
     </div>
   );
 };

@@ -1,26 +1,38 @@
 'use client'
 
 import useSWR from 'swr';
+import { useRouter } from 'next/navigation';
 import { Package } from '@/models/package';
 import { urlFor } from '@/lib/sanityImageBuilder';
 import { Button } from '@/components/ui/button';
 import { CheckIcon } from 'lucide-react';
-import { LoadingSpinner } from '@/components/Loader/Loader';
+import LoadingSpinner from '@/components/Loader/Loader';
+import Error from '@/components/Error/Error'; 
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 const PackageDetails = ({ params }: { params: { slug: string } }) => {
   const { slug } = params;
   const apiUrl = slug ? `/api/package/${slug}` : null;
+  const router = useRouter();
 
-  const { data: pkg, error, isValidating } = useSWR<Package>(apiUrl, fetcher);
+  const { data: pkg, error, isValidating, mutate } = useSWR<Package>(apiUrl, fetcher);
 
-  if (error) return <div>Failed to load package</div>;
-  if (isValidating) return <div><LoadingSpinner /></div>;
+  if (error) {
+    return <Error error={error} reset={() => mutate()} />;
+  }
+
+  if (isValidating) {
+    return <div><LoadingSpinner /></div>;
+  }
 
   const coverImageUrl = pkg ? urlFor(pkg.coverImage).url() : "/placeholder.svg";
   const galleryImages = pkg?.images || ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"];
-  
+
+  const handleBooking = () => {
+    router.push(`/booking/${slug}`); 
+  };
+
   return (
     <div className="max-w-6xl mx-auto px-4 py-8 sm:px-6 md:py-12 lg:px-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
@@ -84,7 +96,7 @@ const PackageDetails = ({ params }: { params: { slug: string } }) => {
               </ul>
             </div>
           )}
-          <Button size="lg" className="w-full">
+          <Button size="lg" className="w-full" onClick={handleBooking}>
             Book Now
           </Button>
         </div>

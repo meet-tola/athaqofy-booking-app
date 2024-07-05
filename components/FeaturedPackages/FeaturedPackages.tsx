@@ -51,7 +51,10 @@ export default function FeaturedPackages({ featuredPackages }: FeaturedPackagePr
           </div>
         ))}
       </div>
+      <Link href="/packages">
       <Button>View More</Button>
+      </Link>
+      
     </div>
   );
 }

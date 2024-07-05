@@ -9,7 +9,7 @@ const PackagePage = () => {
   return (
     <>
       <Breadcrumb title="Packages" items={breadcrumbItems} />
-      <h1 className="text-3xl font-bold text-primary my-8">All Packages</h1>
+      <h1 className="text-3xl font-bold text-primary my-8 text-center">All Packages</h1>
       <PageSearch />
       <AllPackage />
     </>

@@ -3,7 +3,8 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="bg-muted text-primary pt-12 pb-8 px-4">      <div className="mx-auto px-4 container overflow-hidden flex flex-col lg:flex-row justify-between">
+    <footer className="bg-muted text-primary pt-12 pb-8 px-4">
+      <div className="mx-auto px-4 container overflow-hidden flex flex-col lg:flex-row justify-between">
         <Link href="/" className="block mr-4 w-1/3">
           <Image
             src="/athaqofy-logo.svg"
@@ -138,11 +139,10 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        
       </div>
       <div className="mt-4 pt-6 text-gray-600 border-t border-gray-400 text-center">
-          © 2024 Athaqofy. All rights reserved.
-        </div>
+        © 2024 Athaqofy. All rights reserved.
+      </div>
     </footer>
   );
 };
