@@ -3,29 +3,28 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="bg-muted text-primary pt-12 pb-8 px-4">
-      <div className="mx-auto px-4 container overflow-hidden flex flex-col lg:flex-row justify-between">
+    <footer className="bg-muted text-primary pt-12 pb-8 px-4">      <div className="mx-auto px-4 container overflow-hidden flex flex-col lg:flex-row justify-between">
         <Link href="/" className="block mr-4 w-1/3">
           <Image
             src="/athaqofy-logo.svg"
-            alt="athaqofy Logo"
+            alt="Athaqofy Logo"
             className="dark:invert"
             width={110}
             height={28}
             priority
-          />{" "}
+          />
         </Link>
         <div className="w-2/3 block sm:flex text-sm mt-6 lg:mt-0">
           <ul className="text-gray-700 list-none p-0 font-thin flex flex-col text-left w-full">
             <li className="inline-block py-2 px-3 text-primary uppercase font-medium tracking-wide">
-              Product
+              Services
             </li>
             <li>
               <Link
                 href="#"
                 className="inline-block py-2 px-3 text-gray-500 hover:text-primary no-underline"
               >
-                Features
+                Hajj Packages
               </Link>
             </li>
             <li>
@@ -33,7 +32,7 @@ const Footer = () => {
                 href="#"
                 className="inline-block py-2 px-3 text-gray-500 hover:text-primary no-underline"
               >
-                Integrations
+                Umrah Packages
               </Link>
             </li>
             <li>
@@ -41,7 +40,7 @@ const Footer = () => {
                 href="#"
                 className="inline-block py-2 px-3 text-gray-500 hover:text-primary no-underline"
               >
-                Pricing
+                Custom Packages
               </Link>
             </li>
             <li>
@@ -55,14 +54,14 @@ const Footer = () => {
           </ul>
           <ul className="text-gray-700 list-none p-0 font-thin flex flex-col text-left w-full">
             <li className="inline-block py-2 px-3 text-primary uppercase font-medium tracking-wide">
-              Company
+              About
             </li>
             <li>
               <Link
                 href="#"
                 className="inline-block py-2 px-3 text-gray-500 hover:text-primary no-underline"
               >
-                Privacy
+                Our Story
               </Link>
             </li>
             <li>
@@ -70,28 +69,20 @@ const Footer = () => {
                 href="#"
                 className="inline-block py-2 px-3 text-gray-500 hover:text-primary no-underline"
               >
-                Terms of Service
+                Testimonials
               </Link>
             </li>
           </ul>
           <ul className="text-gray-700 list-none p-0 font-thin flex flex-col text-left w-full">
             <li className="inline-block py-2 px-3 text-primary uppercase font-medium tracking-wide">
-              Developers
+              Resources
             </li>
             <li>
               <Link
                 href="#"
                 className="inline-block py-2 px-3 text-gray-500 hover:text-primary no-underline"
               >
-                Developer API
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#"
-                className="inline-block py-2 px-3 text-gray-500 hover:text-primary no-underline"
-              >
-                Documentation
+                Blog
               </Link>
             </li>
             <li>
@@ -149,7 +140,7 @@ const Footer = () => {
         </div>
         
       </div>
-      <div className="mt-4 pt-6 text-gray-600 border-t border-gray-800 text-center">
+      <div className="mt-4 pt-6 text-gray-600 border-t border-gray-400 text-center">
           © 2024 Athaqofy. All rights reserved.
         </div>
     </footer>

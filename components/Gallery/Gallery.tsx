@@ -9,11 +9,13 @@ const galleryImages = [
   { src: "/image/gallery/gallery4.png", alt: "Gallery Image 4" },
   { src: "/image/gallery/gallery5.png", alt: "Gallery Image 5" },
   { src: "/image/gallery/gallery6.png", alt: "Gallery Image 6" },
+  { src: "/image/gallery/gallery5.png", alt: "Gallery Image 5" },
+  { src: "/image/gallery/gallery6.png", alt: "Gallery Image 6" },
 ];
 
 export default function Component() {
   return (
-    <div className="flex flex-col items-center justify-center gap-4 w-full max-w-8xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <div className="flex flex-col items-center justify-center gap-4 w-full mx-auto py-12 px-4 sm:px-6 lg:px-8">
       <div className="text-center">
         <h1 className="text-3xl font-bold text-primary">Our Gallery</h1>
         <p className="text-gray-600">
@@ -21,7 +23,7 @@ export default function Component() {
           beautifully{" "}
         </p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         {galleryImages.map((image, index) => (
           <Dialog key={index}>
             <DialogTrigger asChild>
@@ -29,8 +31,8 @@ export default function Component() {
                 <img
                   src={image.src}
                   alt={image.alt}
-                  width={600}
-                  height={400}
+                  width={700}
+                  height={500}
                   className="w-full h-60 object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">

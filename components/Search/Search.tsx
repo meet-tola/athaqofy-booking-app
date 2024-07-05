@@ -30,8 +30,8 @@ const Search: FC<Props> = ({
 }) => {
   const router = useRouter();
 
-  const handleServiceType = (event: ChangeEvent<HTMLSelectElement>) => {
-    setServiceTypeFilter(event.target.value);
+  const handleServiceType = (value: string) => {
+    setServiceTypeFilter(value);
   };
 
   const handleSearchQueryChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -39,22 +39,23 @@ const Search: FC<Props> = ({
   };
 
   const handleFilterClick = () => {
-    router.push(
-      `/services?serviceType=${serviceTypeFilter}&searchQuery=${searchQuery}`
-    );
+    let query = '/packages?';
+    if (serviceTypeFilter) {
+      query += `serviceType=${serviceTypeFilter}&`;
+    }
+    if (searchQuery) {
+      query += `searchQuery=${searchQuery}`;
+    }
+    router.push(query);
   };
 
   return (
     <div className="container md:mx-auto mx-[250px] flex flex-col md:flex-row gap-4 flex-wrap justify-between items-center py-4">
       <div className="w-full md:w-1/3 lg:w-auto mb-4 md:mb-0">
         <Label htmlFor="serviceType">Service Type</Label>
-        <Select>
+        <Select value={serviceTypeFilter} onValueChange={handleServiceType}>
           <SelectTrigger className="w-full md:w-[180px] mt-2">
-            <SelectValue
-              value={serviceTypeFilter}
-              onChange={handleServiceType}
-              placeholder="Select a Service"
-            />
+            <SelectValue placeholder="Select a Service" />
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>

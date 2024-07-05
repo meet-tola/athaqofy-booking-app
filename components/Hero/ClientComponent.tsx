@@ -14,9 +14,9 @@ const ClientComponent: FC<Props> = (props) => {
   const { heading } = props;
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 bg-hero-bg bg-cover bg-center">
       {heading}
-      <div className="flex flex-wrap justify-center gap-4 mt-10 px-4 sm:px-8">
+      <div className="flex flex-wrap justify-center gap-4 mt-10 px-8">
         <Card className="flex justify-center items-center w-full sm:w-[400px] lg:w-[350px] h-[200px] bg-[#0f4c75] text-white rounded-2xl">
           <CardContent className="text-center">
             <CountUpNumber endValue={100} duration={3000} />

@@ -16,22 +16,35 @@ export async function getFeaturedPackages() {
 }
 
 
-export async function getPackages() {
-  const result = await sanityClient.fetch<Package[]>(
-    queries.getPackagesQuery,
-    {},
-    { cache: 'no-cache' }
-  );
+export async function getPackages(serviceTypeFilter = '', searchQuery = ''): Promise<Package[]> {
+  let query = `*[_type == "package"]`;
+
+  if (serviceTypeFilter || searchQuery) {
+    query += `[`;
+    if (serviceTypeFilter) {
+      query += `serviceType == "${serviceTypeFilter}"`;
+    }
+    if (serviceTypeFilter && searchQuery) {
+      query += ` && `;
+    }
+    if (searchQuery) {
+      query += `name match "*${searchQuery}*"`;
+    }
+    query += `]`;
+  }
+
+  query += ` | order(name asc)`;
+
+  const result = await sanityClient.fetch<Package[]>(query);
   return result;
 }
 
-export async function getPackage(slug: string) {
+export async function getPackage(slug: string): Promise<Package> {
   const result = await sanityClient.fetch<Package>(
     queries.getPackage,
     { slug },
     { cache: 'no-cache' }
   );
-
   return result;
 }
 
