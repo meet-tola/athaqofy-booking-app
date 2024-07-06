@@ -50,7 +50,7 @@ export async function getPackage(slug: string): Promise<Package> {
 
 export const createBooking = async (bookingData: CreateBookingDto) => {
     // Verify payment
-    const { data: verificationData } = await axios.post('/api/verify-payment', { reference: bookingData.reference });
+    const { data: verificationData } = await axios.post('/api/verifypayment', { reference: bookingData.reference });
 
     if (verificationData.message !== 'Payment verified successfully') {
       throw new Error('Payment verification failed');
