@@ -1,12 +1,9 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextResponse } from 'next/server';
 import axios from 'axios';
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method not allowed' });
-  }
-
-  const { reference } = req.body;
+export async function POST(request: Request) {
+  // Convert the Request object to a JSON object
+  const { reference } = await request.json();
 
   try {
     const response = await axios.get(`https://api.paystack.co/transaction/verify/${reference}`, {
@@ -16,11 +13,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     });
 
     if (response.data.data.status === 'success') {
-      return res.status(200).json({ message: 'Payment verified successfully' });
+      return NextResponse.json({ message: 'Payment verified successfully' });
     } else {
-      return res.status(400).json({ message: 'Payment verification failed' });
+      return NextResponse.json({ message: 'Payment verification failed' }, { status: 400 });
     }
   } catch (error) {
-    return res.status(500).json({ message: 'Internal server error', error: error });
+    return NextResponse.json({ message: 'Internal server error' }, { status: 500 });
   }
-};
+}
