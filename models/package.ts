@@ -28,11 +28,12 @@ export type Package = {
 };
 
 export type CreateBookingDto = {
+  reference: any;
   userFullName: string;
   package: string;
   serviceType: 'hajj' | 'umrah';
-  adults: number;
-  children: number;
+  phone: string;
+  email: string;
   specialRequests?: string;
   visaStatus: 'pending' | 'approved' | 'rejected';
   totalPrice: number;
@@ -48,9 +49,10 @@ export type Booking = {
     price: number;
   };
   serviceType: 'hajj' | 'umrah';
-  adults: number;
-  children: number;
+  phone: string;
+  email: string;
   specialRequests?: string;
   visaStatus: 'pending' | 'approved' | 'rejected';
   totalPrice: number;
 };
+

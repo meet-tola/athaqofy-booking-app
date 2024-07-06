@@ -53,7 +53,7 @@ export const getPackage = groq`*[_type == "package" && slug.current == $slug][0]
 }`;
 
 // Query to get user bookings
-export const getUserBookingsQuery = groq`*[_type == 'booking' && userFullName == $userName] {
+export const getUserBookingsQuery = groq`*[_type == 'booking'] {
     _id,
     package -> {
         _id,
