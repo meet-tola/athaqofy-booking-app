@@ -104,12 +104,12 @@ const BookingPage = ({ params }: { params: { slug: string } }) => {
   return (
     <Card className="max-w-lg mx-auto my-[60px] p-4">
       <CardHeader className="mb-6">
-      <CardTitle className="text-xl font-semibold">
-      Registration Fee
-    </CardTitle>
-    <CardDescription className="text-gray-500">
-      Please complete the payment to secure your booking.
-    </CardDescription>
+        <CardTitle className="text-xl font-semibold">
+          Registration Fee
+        </CardTitle>
+        <CardDescription className="text-gray-500">
+          Please complete the payment to secure your booking.
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -174,11 +174,7 @@ const BookingPage = ({ params }: { params: { slug: string } }) => {
           <div className="flex flex-col gap-2">
             <Label htmlFor="visaStatus">Visa Status</Label>
             <Select
-              id="visaStatus"
-              name="visaStatus"
-              onChange={(e: any) =>
-                handleSelectChange("visaStatus", e.target.value)
-              }
+              onValueChange={(value) => handleSelectChange("visaStatus", value)}
             >
               <SelectTrigger>
                 <SelectValue placeholder="Select visa status" />
