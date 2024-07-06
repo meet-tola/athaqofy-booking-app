@@ -91,6 +91,18 @@ const BookingPage = ({ params }: { params: { slug: string } }) => {
     metadata: {
       name: formData.userFullName || "",
       phone: formData.phone || "",
+      custom_fields: [
+        {
+          display_name: "Full Name",
+          variable_name: "full_name",
+          value: formData.userFullName || "",
+        },
+        {
+          display_name: "Phone Number",
+          variable_name: "phone_number",
+          value: formData.phone || "",
+        },
+      ],
     },
     text: "Pay Now",
     onSuccess: (response: any) => {
@@ -99,6 +111,8 @@ const BookingPage = ({ params }: { params: { slug: string } }) => {
       setReference(response.reference);
     },
     onClose: () => toast.error("Payment was not completed."),
+    className:
+      "w-full mt-4 bg-primary text-primary-foreground hover:bg-primary/90 rounded-md h-10 px-4 py-2",
   };
 
   return (
@@ -190,10 +204,7 @@ const BookingPage = ({ params }: { params: { slug: string } }) => {
             <div className="font-medium">Total Price</div>
             <div className="text-2xl font-bold">₦{pkg.price}</div>
           </div>
-          <PaystackButton
-            className="w-full mt-4 bg-primary text-primary-foreground hover:bg-primary/90 rounded-md h-10 px-4 py-2"
-            {...paystackProps}
-          />
+          <PaystackButton {...paystackProps} />
         </form>
       </CardContent>
     </Card>
