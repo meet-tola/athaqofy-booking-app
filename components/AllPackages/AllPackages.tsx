@@ -40,7 +40,7 @@ const AllPackages = () => {
   }
 
   return (
-    <div className="flex flex-wrap justify-center gap-6 w-full mx-auto py-4 px-8 lg:px-20 mb-8">
+    <div className="flex flex-wrap justify-center gap-4 w-full mx-auto py-4 px-8 lg:px-20 mb-8">
       {loading ? (
         <LoadingSpinner />
       ) : (

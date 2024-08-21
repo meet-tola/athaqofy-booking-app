@@ -12,9 +12,6 @@ export const heading = (
           Discover Spiritual Fulfillment, and Experience the Serenity of the
           Heart of Islam’s Holiest City with Our Guided Tours
         </p>
-        <Button variant="outline" className="mt-6">
-          Get Started
-        </Button>
       </div>
     </>
   );

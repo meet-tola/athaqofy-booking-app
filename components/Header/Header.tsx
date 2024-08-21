@@ -38,14 +38,14 @@ const MobileNavbar = () => {
           </SheetTrigger>
           <SheetContent className="w-[400px] sm:w-[540px]" side="left">
             <Link href="/">
-            <Image
-              src="/athaqofy-logo.svg"
-              alt="athaqofy Logo"
-              className="dark:invert"
-              width={110}
-              height={28}
-              priority
-            />
+              <Image
+                src="/athaqofy-logo.svg"
+                alt="athaqofy Logo"
+                className="dark:invert"
+                width={110}
+                height={28}
+                priority
+              />
             </Link>
             <div className="flex flex-col gap-1 pt-4">
               {items.map((item) => (
@@ -73,7 +73,9 @@ const MobileNavbar = () => {
           />
         </Link>
         <div className="flex items-center gap-2">
-          <Button>Book Now</Button>
+          <Button>
+            <Link href="/packages">Book Now</Link>
+          </Button>
         </div>
       </nav>
     </div>
@@ -107,7 +109,9 @@ const DesktopNavbar = () => {
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <Button>Book Now</Button>
+        <Button>
+            <Link href="/packages">Book Now</Link>
+          </Button>
         </div>
       </nav>
     </div>

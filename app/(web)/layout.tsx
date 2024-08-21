@@ -13,7 +13,7 @@ const openSans = Open_Sans({
 
 export const metadata: Metadata = {
   title: "Athaqofy",
-  description: "Hajj & Urmah Travel Services",
+  description: "Hajj & Umrah Services",
 };
 
 export default function RootLayout({
