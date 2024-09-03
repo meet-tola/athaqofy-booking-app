@@ -5,9 +5,14 @@ const LogoMarquee = () => {
   const logos = [
     "/image/logo1.png",
     "/image/logo2.png",
-    "/image/logo3.jpg",
+    "/image/logo3.png",
     "/image/logo4.png",
     "/image/logo5.png",
+    "/image/logo6.png",
+    "/image/logo7.png",
+    "/image/logo8.png",
+    "/image/logo9.png",
+    "/image/logo10.png",
   ];
 
   return (

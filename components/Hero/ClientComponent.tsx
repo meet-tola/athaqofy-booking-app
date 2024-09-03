@@ -28,10 +28,10 @@ const ClientComponent: FC<Props> = (props) => {
         </Card>
         <Card className="flex justify-center items-center w-full sm:w-[400px] lg:w-[350px] h-[200px] bg-[#1b1b1b] text-white rounded-2xl">
           <CardContent className="text-center">
-            <CountUpNumber endValue={20} duration={3000} />
+            <CountUpNumber endValue={30} duration={3000} />
             <div className="mt-2 text-lg">Years Experience</div>
             <p className="mt-4 text-sm">
-              Proudly serving for over 20 years and achieved satisfactory
+              Proudly serving for over 30 years and achieved satisfactory
               feedbacks
             </p>
           </CardContent>
@@ -39,9 +39,9 @@ const ClientComponent: FC<Props> = (props) => {
         <Card className="flex justify-center items-center w-full sm:w-[400px] lg:w-[350px] h-[200px] bg-[#d32f2f] text-white rounded-2xl">
           <CardContent className="text-center">
             <CountUpNumber endValue={50} duration={3000} />
-            <div className="mt-2 text-lg">Hajj and Umrah</div>
+            <div className="mt-2 text-lg">Hajj and Umrah Tours</div>
             <p className="mt-4 text-sm">
-              Successfully coordinated over 50 Hajj and Umrah operations
+              Successfully coordinated over 50 Hajj and Umrah tours
             </p>
           </CardContent>
         </Card>
