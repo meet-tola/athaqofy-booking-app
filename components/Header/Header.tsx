@@ -20,7 +20,6 @@ const Header = () => {
 const items = [
   { label: "About Us", link: "/about-us" },
   { label: "Packages", link: "/packages" },
-  { label: "Booking", link: "/booking" },
   { label: "Gallery", link: "/gallery" },
   { label: "Community", link: "/community" },
 ];

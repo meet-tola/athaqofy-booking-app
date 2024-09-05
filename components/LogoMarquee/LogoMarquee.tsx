@@ -23,7 +23,7 @@ const LogoMarquee = () => {
 
       <div className="flex items-center justify-center h-full animate-marquee whitespace-nowrap">
         {logos.map((logo, index) => (
-          <div key={index} className="h-full mx-4 relative w-[100px]" >
+          <div key={index} className="h-full mx-4 relative w-[100px]">
             <Image
               src={logo}
               alt={`Logo ${index + 1}`}
@@ -33,9 +33,25 @@ const LogoMarquee = () => {
             />
           </div>
         ))}
-        {/* Repeat the logos to create an infinite effect */}
         {logos.map((logo, index) => (
-          <div key={index + logos.length} className="h-full mx-6 relative w-[100px]">
+          <div
+            key={index + logos.length}
+            className="h-full mx-6 relative w-[100px]"
+          >
+            <Image
+              src={logo}
+              alt={`Logo ${index + 1}`}
+              layout="fill"
+              objectFit="contain"
+              priority
+            />
+          </div>
+        ))}
+        {logos.map((logo, index) => (
+          <div
+            key={index + logos.length}
+            className="h-full mx-6 relative w-[100px]"
+          >
             <Image
               src={logo}
               alt={`Logo ${index + 1}`}

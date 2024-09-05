@@ -39,9 +39,9 @@ const ClientComponent: FC<Props> = (props) => {
         <Card className="flex justify-center items-center w-full sm:w-[400px] lg:w-[350px] h-[200px] bg-[#d32f2f] text-white rounded-2xl">
           <CardContent className="text-center">
             <CountUpNumber endValue={50} duration={3000} />
-            <div className="mt-2 text-lg">Hajj and Umrah Tours</div>
+            <div className="mt-2 text-lg">Tours Packages</div>
             <p className="mt-4 text-sm">
-              Successfully coordinated over 50 Hajj and Umrah tours
+              Successfully coordinated over 50 tours packages
             </p>
           </CardContent>
         </Card>
