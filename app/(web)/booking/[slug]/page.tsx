@@ -19,10 +19,10 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import LoadingSpinner from "@/components/Loader/Loader";
 import Error from "@/components/Error/Error";
-import { PaystackButton } from "react-paystack";
 import { useState } from "react";
 import { createBooking } from "@/lib/apis";
 import { toast } from "react-hot-toast";
+import { FlutterWaveButton, closePaymentModal } from 'flutterwave-react-v3';
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -84,35 +84,33 @@ const BookingPage = ({ params }: { params: { slug: string } }) => {
     }
   };
 
-  const paystackProps = {
-    email: formData.email || "",
-    amount: pkg.price * 100,
-    publicKey: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY!,
-    metadata: {
-      name: formData.userFullName || "",
-      phone: formData.phone || "",
-      custom_fields: [
-        {
-          display_name: "Full Name",
-          variable_name: "full_name",
-          value: formData.userFullName || "",
-        },
-        {
-          display_name: "Phone Number",
-          variable_name: "phone_number",
-          value: formData.phone || "",
-        },
-      ],
+  const fwConfig = {
+    public_key: 'FLWPUBK_TEST-e441b9e33776ced7a35e674e46b3ab54-X',
+    tx_ref: Date.now().toString(),
+    amount: pkg.price,
+    currency: 'NGN',
+    payment_options: 'card,mobilemoney,ussd',
+    customer: {
+      email: formData.email || '',
+      phone_number: formData.phone || '',
+      name: formData.userFullName || 'Customer',
     },
-    text: "Pay Now",
-    onSuccess: (response: any) => {
-      toast.success("Payment successful!");
-      setPaymentSuccess(true);
-      setReference(response.reference);
+    customizations: {
+      title: pkg.name,
+      description: 'Payment for booking',
+      logo: 'https://st2.depositphotos.com/4403291/7418/v/450/depositphotos_74189661-stock-illustration-online-shop-log.jpg',
+    },
+    callback: (response: any) => {
+      if (response.status === 'successful') {
+        toast.success("Payment successful!");
+        setPaymentSuccess(true);
+        setReference(response.transaction_id);
+        closePaymentModal();  // Close the payment modal
+      } else {
+        toast.error("Payment failed. Please try again.");
+      }
     },
     onClose: () => toast.error("Payment was not completed."),
-    className:
-      "w-full mt-4 bg-primary text-primary-foreground hover:bg-primary/90 rounded-md h-10 px-4 py-2",
   };
 
   return (
@@ -204,7 +202,10 @@ const BookingPage = ({ params }: { params: { slug: string } }) => {
             <div className="font-medium">Total Price</div>
             <div className="text-2xl font-bold">₦{pkg.price}</div>
           </div>
-          <PaystackButton {...paystackProps} />
+          <FlutterWaveButton
+            {...fwConfig}
+            className="w-full mt-4 bg-primary text-primary-foreground hover:bg-primary/90 rounded-md h-10 px-4 py-2"
+          >Pay Now</FlutterWaveButton>
         </form>
       </CardContent>
     </Card>
