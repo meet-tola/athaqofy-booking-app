@@ -29,7 +29,7 @@ export default function RegBooking() {
   const [reference, setReference] = useState("");
 
   const getAmount = () =>
-    serviceType === "umrah" ? 15000 : serviceType === "hajj" ? 30000 : 0;
+    serviceType === "umrah" ? 15000 : serviceType === "hajj" ? 20000 : 0;
 
   const fwConfig = {
     public_key: "FLWPUBK_TEST-e441b9e33776ced7a35e674e46b3ab54-X",
