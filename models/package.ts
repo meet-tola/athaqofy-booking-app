@@ -17,6 +17,7 @@ export type Package = {
   slug: Slug;
   description: string;
   price: number;
+  reg: number;
   discount: number;
   images: SanityImageSource[];
   coverImage: SanityImageSource;

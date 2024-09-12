@@ -29,7 +29,13 @@ const packageSchema = {
       name: 'price',
       title: 'Price',
       type: 'number',
-      validation: Rule => Rule.required().min(100).error('Minimum price is 100'),
+      validation: Rule => Rule.required().min(1000000).error('Minimum price is 1000000'),
+    }),
+    defineField({
+      name: 'reg',
+      title: 'Registration',
+      type: 'number',
+      validation: Rule => Rule.required().min(10000).error('Minimum price is 10000'),
     }),
     defineField({
       name: 'discount',

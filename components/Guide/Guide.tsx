@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "../ui/button";
 
 const Guide = () => {
@@ -48,7 +49,9 @@ const Guide = () => {
           </p>
         </div>
       </div>
+      <Link href="/reg-booking">
       <Button>Register Now</Button>
+      </Link>
     </div>
   );
 };

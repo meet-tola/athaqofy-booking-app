@@ -109,7 +109,7 @@ const DesktopNavbar = () => {
         </div>
         <div className="flex items-center gap-2">
         <Button>
-            <Link href="/packages">Book Now</Link>
+            <Link href="/reg-booking">Book Now</Link>
           </Button>
         </div>
       </nav>

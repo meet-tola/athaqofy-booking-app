@@ -7,7 +7,16 @@ interface FeaturedPackageProps {
   featuredPackages: Package[];
 }
 
-export default function FeaturedPackages({ featuredPackages }: FeaturedPackageProps) {
+export default function FeaturedPackages({
+  featuredPackages,
+}: FeaturedPackageProps) {
+  const formatPrice = (price: any) => {
+    return new Intl.NumberFormat("en-NG", {
+      style: "currency",
+      currency: "NGN",
+      minimumFractionDigits: 0,
+    }).format(price);
+  };
   return (
     <div className="flex flex-col items-center justify-center gap-4 mb-8">
       <div className="text-center">
@@ -18,10 +27,12 @@ export default function FeaturedPackages({ featuredPackages }: FeaturedPackagePr
         {featuredPackages.map((featuredPackage) => (
           <div
             key={featuredPackage._id}
-            className="bg-card rounded-xl overflow-hidden shadow-md w-[310px] h-[400px] flex flex-col transition-transform transform hover:scale-105"
+            className="bg-card rounded-xl overflow-hidden shadow-md w-[310px] h-[420px] flex flex-col transition-transform transform hover:scale-105"
           >
             <img
-              src={urlFor(featuredPackage.coverImage).url() || "/placeholder.svg"}
+              src={
+                urlFor(featuredPackage.coverImage).url() || "/placeholder.svg"
+              }
               alt={`${featuredPackage.name} Service`}
               className="w-full h-48 object-cover"
             />
@@ -35,14 +46,19 @@ export default function FeaturedPackages({ featuredPackages }: FeaturedPackagePr
                     {featuredPackage.name}
                   </span>
                   <span className="text-primary text-lg font-semibold">
-                    ₦{featuredPackage.price}/<span className="text-sm">person</span>
+                    <span className="text-sm">Fee Deposit: {` `}</span>
+                    {formatPrice(featuredPackage.price)}
+                  </span>
+                  <span className="text-primary text-lg font-semibold">
+                    <span className="text-sm">Registration: {` `}</span>
+                    {formatPrice(featuredPackage.reg)}
                   </span>
                   <span className="text-muted-foreground">
                     Package's Duration ({featuredPackage.duration} days)
                   </span>
                 </div>
               </div>
-              <Link href={`/packages/${featuredPackage.slug.current}`}>
+              <Link href="/reg-booking">
                 <Button variant="outline" className="my-auto">
                   Details
                 </Button>
@@ -52,9 +68,8 @@ export default function FeaturedPackages({ featuredPackages }: FeaturedPackagePr
         ))}
       </div>
       <Link href="/packages">
-      <Button>View More</Button>
+        <Button>View More</Button>
       </Link>
-      
     </div>
   );
 }
