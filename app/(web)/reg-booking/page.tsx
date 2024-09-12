@@ -34,7 +34,7 @@ export default function RegBooking() {
   const fwConfig = {
     public_key: "FLWPUBK_TEST-e441b9e33776ced7a35e674e46b3ab54-X",
     tx_ref: Date.now().toString(),
-    amount: getAmount().toString(),
+    amount: getAmount(),
     currency: "NGN",
     payment_options: "card,mobilemoney,ussd",
     customer: {
