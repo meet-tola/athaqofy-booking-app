@@ -22,26 +22,27 @@ const ClientComponent: FC<Props> = (props) => {
             <CountUpNumber endValue={100} duration={3000} />
             <div className="mt-2 text-lg">Pilgrims Annually</div>
             <p className="mt-4 text-sm">
-              Thousands have entrusted us to fulfill their Hajj aspirations
+            Trusted by over 100 pilgrims each year to fulfill their sacred Hajj and Umrah journey.
             </p>
           </CardContent>
         </Card>
         <Card className="flex justify-center items-center w-full sm:w-[400px] lg:w-[350px] h-[200px] bg-[#1b1b1b] text-white rounded-2xl">
           <CardContent className="text-center">
             <CountUpNumber endValue={30} duration={3000} />
-            <div className="mt-2 text-lg">Years Experience</div>
+            <div className="mt-2 text-lg">Years of Expertise</div>
             <p className="mt-4 text-sm">
-              Proudly serving for over 30 years and achieved satisfactory
-              feedbacks
+            Over two decades of delivering enriching and 
+            memorable pilgrimage experiences.
             </p>
           </CardContent>
         </Card>
         <Card className="flex justify-center items-center w-full sm:w-[400px] lg:w-[350px] h-[200px] bg-[#d32f2f] text-white rounded-2xl">
           <CardContent className="text-center">
             <CountUpNumber endValue={50} duration={3000} />
-            <div className="mt-2 text-lg">Tours Packages</div>
+            <div className="mt-2 text-lg">Curated Tour Packages</div>
             <p className="mt-4 text-sm">
-              Successfully coordinated over 50 tours packages
+            Offering a wide range of meticulously planned tours to 
+            ensure a seamless and spiritual journey.
             </p>
           </CardContent>
         </Card>

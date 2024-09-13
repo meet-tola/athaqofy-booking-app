@@ -1,5 +1,6 @@
-"use client";
-import React, { useState } from "react";
+'use client';
+
+import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Button, buttonVariants } from "@/components/ui/button";
@@ -9,11 +10,28 @@ import { Menu } from "lucide-react";
 import Image from "next/image";
 
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <>
+    <header className={cn(
+      "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+      isScrolled ? "bg-background/95 backdrop-blur-sm shadow-sm" : "bg-background"
+    )}>
       <DesktopNavbar />
       <MobileNavbar />
-    </>
+    </header>
   );
 };
 
@@ -31,7 +49,7 @@ const MobileNavbar = () => {
       <nav className="container flex items-center justify-between px-8">
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
-            <Button variant={"ghost"} size={"icon"}>
+            <Button variant="ghost" size="icon" aria-label="Open menu">
               <Menu />
             </Button>
           </SheetTrigger>
@@ -72,7 +90,7 @@ const MobileNavbar = () => {
           />
         </Link>
         <div className="flex items-center gap-2">
-          <Button>
+          <Button asChild>
             <Link href="/packages">Book Now</Link>
           </Button>
         </div>
@@ -96,8 +114,8 @@ const DesktopNavbar = () => {
               priority
             />
           </Link>
-
-          <div className="flex h-full">
+        </div>
+        <div className="flex h-full">
             {items.map((item) => (
               <NavbarItem
                 key={item.label}
@@ -106,9 +124,8 @@ const DesktopNavbar = () => {
               />
             ))}
           </div>
-        </div>
         <div className="flex items-center gap-2">
-        <Button>
+          <Button asChild>
             <Link href="/reg-booking">Book Now</Link>
           </Button>
         </div>
@@ -150,4 +167,5 @@ const NavbarItem = ({
     </div>
   );
 };
+
 export default Header;

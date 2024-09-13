@@ -1,5 +1,7 @@
 "use client";
+
 import { useState } from "react";
+import { useRouter } from "next/navigation"; 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -27,6 +29,7 @@ export default function RegBooking() {
   const [serviceType, setServiceType] = useState("");
   const [paymentSuccess, setPaymentSuccess] = useState(false);
   const [reference, setReference] = useState("");
+  const router = useRouter();
 
   const getAmount = () =>
     serviceType === "umrah" ? 15000 : serviceType === "hajj" ? 20000 : 0;
@@ -52,7 +55,8 @@ export default function RegBooking() {
         toast.success("Payment successful!");
         setPaymentSuccess(true);
         setReference(response.transaction_id);
-        closePaymentModal(); // Close the payment modal
+        closePaymentModal();
+        router.push("/your-link-here"); 
       } else {
         toast.error("Payment failed. Please try again.");
       }

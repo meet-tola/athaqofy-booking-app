@@ -27,7 +27,7 @@ export default function FeaturedPackages({
         {featuredPackages.map((featuredPackage) => (
           <div
             key={featuredPackage._id}
-            className="bg-card rounded-xl overflow-hidden shadow-md w-[310px] h-[420px] flex flex-col transition-transform transform hover:scale-105"
+            className="bg-card rounded-xl overflow-hidden shadow-md w-[310px] h-[400px] flex flex-col transition-transform transform hover:scale-105"
           >
             <img
               src={
@@ -53,14 +53,11 @@ export default function FeaturedPackages({
                     <span className="text-sm">Registration: {` `}</span>
                     {formatPrice(featuredPackage.reg)}
                   </span>
-                  <span className="text-muted-foreground">
-                    Package's Duration ({featuredPackage.duration} days)
-                  </span>
                 </div>
               </div>
               <Link href="/reg-booking">
                 <Button variant="outline" className="my-auto">
-                  Details
+                  Book Now
                 </Button>
               </Link>
             </div>
