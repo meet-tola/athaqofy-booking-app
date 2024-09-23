@@ -30,10 +30,10 @@ export default function RegBooking() {
   const [paymentSuccess, setPaymentSuccess] = useState(false);
   const [reference, setReference] = useState("");
   const router = useRouter();
-
+  
   const getAmount = () =>
     serviceType === "umrah" ? 15000 : serviceType === "hajj" ? 20000 : 0;
-
+  
   const fwConfig = {
     public_key: "FLWPUBK_TEST-e441b9e33776ced7a35e674e46b3ab54-X",
     tx_ref: Date.now().toString(),
@@ -51,21 +51,38 @@ export default function RegBooking() {
       logo: "https://st2.depositphotos.com/4403291/7418/v/450/depositphotos_74189661-stock-illustration-online-shop-log.jpg",
     },
     callback: (response: any) => {
-      if (response.status === "successful") {
+      console.log("flutter response",response);
+      
+      if (response.status === "completed") {
         toast.success("Payment successful!");
         setPaymentSuccess(true);
         setReference(response.transaction_id);
         closePaymentModal();
-        router.push("/your-link-here"); 
+  
+        if (serviceType === "hajj") {
+          router.push("https://forms.gle/2cfrDhezhNPANBRU7");
+        } else if (serviceType === "umrah") {
+          router.push("https://forms.gle/maJY6ngQJQ4Y4gp2A");
+        } else {
+          router.push("/"); 
+        }
       } else {
         toast.error("Payment failed. Please try again.");
       }
     },
-    onClose: () => {},
-  };
+    onClose: () => {
+      if (serviceType === "hajj") {
+        router.push("https://forms.gle/2cfrDhezhNPANBRU7");
+      } else if (serviceType === "umrah") {
+        router.push("https://forms.gle/maJY6ngQJQ4Y4gp2A");
+      } else {
+        router.push("/"); 
+      }
+    },
+  };  
 
   return (
-    <Card className="w-full max-w-md mx-auto my-5">
+    <Card className="w-full max-w-md mx-auto my-5 mt-20">
       <CardHeader className="space-y-1">
         <div className="flex justify-center">
           <img

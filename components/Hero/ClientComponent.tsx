@@ -28,7 +28,7 @@ const ClientComponent: FC<Props> = (props) => {
         </Card>
         <Card className="flex justify-center items-center w-full sm:w-[400px] lg:w-[350px] h-[200px] bg-[#1b1b1b] text-white rounded-2xl">
           <CardContent className="text-center">
-            <CountUpNumber endValue={30} duration={3000} />
+            <CountUpNumber endValue={20} duration={3000} />
             <div className="mt-2 text-lg">Years of Expertise</div>
             <p className="mt-4 text-sm">
             Over two decades of delivering enriching and 
