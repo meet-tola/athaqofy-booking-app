@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
@@ -17,22 +17,18 @@ const Header = () => {
       setIsScrolled(window.scrollY > 0);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled
-          ? "bg-background/95 backdrop-blur-sm shadow-sm"
-          : "bg-background"
-      )}
-    >
+    <header className={cn(
+      "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+      isScrolled ? "bg-background/95 backdrop-blur-sm shadow-sm" : "bg-background"
+    )}>
       <DesktopNavbar />
       <MobileNavbar />
     </header>
@@ -121,10 +117,14 @@ const DesktopNavbar = () => {
           </Link>
         </div>
         <div className="flex h-full">
-          {items.map((item) => (
-            <NavbarItem key={item.label} link={item.link} label={item.label} />
-          ))}
-        </div>
+            {items.map((item) => (
+              <NavbarItem
+                key={item.label}
+                link={item.link}
+                label={item.label}
+              />
+            ))}
+          </div>
         <div className="flex items-center gap-2">
           <Button asChild>
             <Link href="/reg-booking">Book Now</Link>
