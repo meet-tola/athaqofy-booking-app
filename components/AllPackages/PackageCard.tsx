@@ -1,14 +1,22 @@
-import { FC } from 'react';
-import { Package } from '@/models/package';
-import { urlFor } from '@/lib/sanityImageBuilder';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+import { FC } from "react";
+import { Package } from "@/models/package";
+import { urlFor } from "@/lib/sanityImageBuilder";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 interface PackageCardProps {
   pkg: Package;
 }
 
 const PackageCard: FC<PackageCardProps> = ({ pkg }) => {
+  const formatPrice = (price: any) => {
+    return new Intl.NumberFormat("en-NG", {
+      style: "currency",
+      currency: "NGN",
+      minimumFractionDigits: 0,
+    }).format(price);
+  };
+
   return (
     <div
       key={pkg._id}
@@ -21,19 +29,19 @@ const PackageCard: FC<PackageCardProps> = ({ pkg }) => {
       />
       <div className="p-4 flex flex-col justify-between flex-grow">
         <div>
-          <div className="flex flex-col items-start gap-1 mb-2">
-            <span className="text-muted-foreground">
-              {pkg.serviceType}
-            </span>
-            <span className="text-primary font-bold text-xl">
-              {pkg.name}
-            </span>
-            <span className="text-primary text-lg font-semibold">
-              ₦{pkg.price}/<span className="text-sm">person</span>
-            </span>
-            <span className="text-muted-foreground">
-              Package's Duration ({pkg.duration} days)
-            </span>
+          <div>
+            <div className="flex flex-col items-start gap-1 mb-2">
+              <span className="text-muted-foreground">{pkg.serviceType}</span>
+              <span className="text-primary font-bold text-xl">{pkg.name}</span>
+              <span className="text-primary text-lg font-semibold">
+                <span className="text-sm">Fee Deposit: {` `}</span>
+                {formatPrice(pkg.price)}
+              </span>
+              <span className="text-primary text-lg font-semibold">
+                <span className="text-sm">Registration: {` `}</span>
+                {formatPrice(pkg.reg)}
+              </span>
+            </div>
           </div>
         </div>
         <Link href={`/packages/${pkg.slug.current}`}>
