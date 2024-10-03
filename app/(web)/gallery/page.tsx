@@ -38,7 +38,7 @@ export default function Component() {
 
   return (
     <div className="mt-16 lg:mt-5">
-      <Breadcrumb title="Packages" items={breadcrumbItems} />
+      <Breadcrumb title="Gallery" items={breadcrumbItems} />
 
       <div className="flex flex-col items-center justify-center gap-4 w-full mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="text-center">
