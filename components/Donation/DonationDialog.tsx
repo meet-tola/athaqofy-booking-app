@@ -31,14 +31,14 @@ export default function DonationDialog() {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="sm:max-w-[500px]">
+      <DialogContent className="sm:max-w-[500px] h-screen">
         <DialogHeader>
           <DialogTitle>Donate Now!</DialogTitle>
-          <DialogDescription>
+          {/* <DialogDescription>
             Your donation can make a difference. Every contribution counts!
-          </DialogDescription>
+          </DialogDescription> */}
         </DialogHeader>
-        <div className="grid gap-4 py-4">
+        <div className="grid gap-4 py-2">
           <div className="flex justify-center">
             <Image
               src="/image/donate.jpg"
@@ -70,7 +70,7 @@ export default function DonationDialog() {
             </Label>
             <Input
               id="accountNumber"
-              defaultValue="POLARIS BANK-4091228313"
+              defaultValue="POLARIS BANK - 4091228313"
               className="col-span-3"
               readOnly
             />
