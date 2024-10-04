@@ -42,7 +42,7 @@ export default function DonationDialog() {
         <div className="grid gap-4 py-4">
           <div className="flex justify-center">
             <Image
-              src="/image/gallery/donate.jpg"
+              src="/image/donate.jpg"
               alt="Donation campaign"
               width={300}
               height={300}
