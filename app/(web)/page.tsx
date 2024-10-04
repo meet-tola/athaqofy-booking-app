@@ -7,6 +7,7 @@ import { getFeaturedPackages } from "@/lib/apis";
 import AboutUs from "@/components/AboutUs/AboutUs";
 import Testimonials from "@/components/Testimonial/Testimonial";
 import Newsletter from "@/components/Newsletter/Newsletter";
+import DonationDialog from "@/components/Donation/DonationDialog";
 
 const page = async () => {
   const packageData = await getFeaturedPackages();
@@ -21,6 +22,7 @@ const page = async () => {
       <Gallery />
       <Testimonials />
       <Newsletter /> 
+      <DonationDialog />
     </>
   );
 };
