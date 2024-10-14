@@ -13,6 +13,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function DonationDialog() {
   const [open, setOpen] = useState(false);
@@ -31,7 +32,7 @@ export default function DonationDialog() {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="sm:max-w-[500px] h-screen">
+      <DialogContent className="sm:max-w-[500px]">
         <DialogHeader>
           <DialogTitle>Donate Now!</DialogTitle>
           {/* <DialogDescription>
@@ -43,8 +44,8 @@ export default function DonationDialog() {
             <Image
               src="/image/donate.jpg"
               alt="Donation campaign"
-              width={250}
-              height={250}
+              width={300}
+              height={300}
               className="rounded-md"
             />
           </div>
@@ -53,7 +54,7 @@ export default function DonationDialog() {
             the deceased with dignity. Your donation will be a Sadaqah Jariyah
             for years to come. Donate Generously and Share Widely!
           </p>
-          <div className="grid grid-cols-4 items-center gap-4">
+          {/* <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="accountName" className="text-right">
               Account Name
             </Label>
@@ -74,17 +75,18 @@ export default function DonationDialog() {
               className="col-span-3"
               readOnly
             />
-          </div>
+          </div> */}
         </div>
-        <p className="text-center text-sm text-muted-foreground mt-2">
+        {/* <p className="text-center text-sm text-muted-foreground mt-2">
           If you have made a donation or would like to contribute, please
           contact the admin for more information or to provide proof of your
           contribution.
-        </p>
+        </p> */}
         <DialogFooter className="sm:justify-start flex flex-col sm:flex-row gap-2">
-          <Button type="button" onClick={handleContactAdmin}>
-            Contact Admin
-          </Button>
+          <Link href="https://selar.co/9yrj14" className="w-full">
+            <Button>DONATE NOW</Button>
+          </Link>
+
           <Button type="button" variant="outline" onClick={handleClose}>
             Close
           </Button>
