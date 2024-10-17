@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -13,21 +12,21 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function DonationDialog() {
   const [open, setOpen] = useState(false);
+  const [showAccountDetails, setShowAccountDetails] = useState(false);
 
   useEffect(() => {
     setOpen(true);
   }, []);
 
-  const handleContactAdmin = () => {
-    console.log("Contacting admin...");
-  };
-
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleDonateClick = () => {
+    setShowAccountDetails(true); // Show account details on button click
   };
 
   return (
@@ -54,38 +53,40 @@ export default function DonationDialog() {
             the deceased with dignity. Your donation will be a Sadaqah Jariyah
             for years to come. Donate Generously and Share Widely!
           </p>
-          {/* <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="accountName" className="text-right">
-              Account Name
-            </Label>
-            <Input
-              id="accountName"
-              defaultValue="Athaqofy Global Services"
-              className="col-span-3"
-              readOnly
-            />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="accountNumber" className="text-right">
-              Account Number
-            </Label>
-            <Input
-              id="accountNumber"
-              defaultValue="POLARIS BANK - 4091228313"
-              className="col-span-3"
-              readOnly
-            />
-          </div> */}
+
+          {/* Conditionally render account details */}
+          {showAccountDetails && (
+            <>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="accountName" className="text-right">
+                  Account Name
+                </Label>
+                <Input
+                  id="accountName"
+                  defaultValue="Athaqofy Global Services"
+                  className="col-span-3"
+                  readOnly
+                />
+              </div>
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="accountNumber" className="text-right">
+                  Account Number
+                </Label>
+                <Input
+                  id="accountNumber"
+                  defaultValue="POLARIS BANK - 4091228313"
+                  className="col-span-3"
+                  readOnly
+                />
+              </div>
+            </>
+          )}
         </div>
-        {/* <p className="text-center text-sm text-muted-foreground mt-2">
-          If you have made a donation or would like to contribute, please
-          contact the admin for more information or to provide proof of your
-          contribution.
-        </p> */}
+
         <DialogFooter className="sm:justify-start flex flex-col sm:flex-row gap-2">
-          <Link href="https://selar.co/9yrj14" className="w-full">
-            <Button>DONATE NOW</Button>
-          </Link>
+          <Button onClick={handleDonateClick} className="w-full">
+            DONATE NOW
+          </Button>
 
           <Button type="button" variant="outline" onClick={handleClose}>
             Close

@@ -64,18 +64,22 @@ export default function FeaturedPackages({
                     </span>
                   </div>
                 </div>
-                <Link href={bookingLink}>
-                  <Button variant="outline" className="my-auto">
-                    Book Now
-                  </Button>
+                <Link href={bookingLink} legacyBehavior>
+                  <a target="_blank" rel="noopener noreferrer">
+                    <Button variant="outline" className="my-auto">
+                      Book Now
+                    </Button>
+                  </a>
                 </Link>
               </div>
             </div>
           );
         })}
       </div>
-      <Link href="/packages">
-        <Button>View More</Button>
+      <Link href="/packages" legacyBehavior>
+        <a target="_blank" rel="noopener noreferrer">
+          <Button>View More</Button>
+        </a>
       </Link>
     </div>
   );
