@@ -49,8 +49,10 @@ const Guide = () => {
           </p>
         </div>
       </div>
-      <Link href="/reg-booking">
-      <Button>Register Now</Button>
+      <Link href="https://selar.co/athaqofyhajjregistration"legacyBehavior>
+      <a target="_blank" rel="noopener noreferrer"> 
+        <Button>Register Now</Button>
+      </a>
       </Link>
     </div>
   );
