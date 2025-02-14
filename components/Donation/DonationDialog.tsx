@@ -49,9 +49,7 @@ export default function DonationDialog() {
             />
           </div>
           <p className="text-center text-sm text-muted-foreground">
-            Assalamu Alaikum. Help provide stretchers for mosques to transport
-            the deceased with dignity. Your donation will be a Sadaqah Jariyah
-            for years to come. Donate Generously and Share Widely!
+            Assalamu Alaikum. Together, we can ensure fasting Muslim have a meal. May Allah (SWT) bless and multiply your rewards for this noble effort.!
           </p>
 
           {/* Conditionally render account details */}
