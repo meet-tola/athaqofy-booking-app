@@ -40,7 +40,7 @@ const items = [
   { label: "About Us", link: "/about-us" },
   { label: "Services", link: "/packages" },
   { label: "Gallery", link: "/gallery" },
-  { label: "Blog", link: "/blog" },
+  { label: "Charity", link: "/charity" },
 ];
 
 const MobileNavbar = () => {
