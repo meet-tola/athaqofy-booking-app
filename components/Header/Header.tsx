@@ -130,7 +130,7 @@ const DesktopNavbar = () => {
         </div>
 
         <Button size="sm" asChild>
-          <Link href="/reg-booking">Book Now</Link>
+          <Link href="/packages">Book Now</Link>
         </Button>
       </nav>
     </div>

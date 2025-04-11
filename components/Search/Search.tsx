@@ -1,14 +1,12 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
-import { ChangeEvent, FC } from "react";
-import { Label } from "@/components/ui/label";
+import { useRouter, useSearchParams } from "next/navigation";
+import { ChangeEvent, FC, useEffect } from "react";
 import {
   Select,
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
@@ -21,18 +19,22 @@ type Props = {
   searchQuery: string;
   setServiceTypeFilter: (value: string) => void;
   setSearchQuery: (value: string) => void;
+  setFetchKey: (value: number | ((prev: number) => number)) => void;
 };
+
 
 const Search: FC<Props> = ({
   serviceTypeFilter,
   searchQuery,
   setServiceTypeFilter,
   setSearchQuery,
+  setFetchKey,
 }) => {
   const router = useRouter();
+  const searchParams = useSearchParams();
 
-  const handleServiceType = (value: string) => {
-    setServiceTypeFilter(value);
+  const handleServiceTypeChange = (value: string) => {
+    setServiceTypeFilter(value === "all" ? "" : value);
   };
 
   const handleSearchQueryChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -40,44 +42,61 @@ const Search: FC<Props> = ({
   };
 
   const handleFilterClick = () => {
-    let query = "/packages?";
+    const params = new URLSearchParams();
+
     if (serviceTypeFilter) {
-      query += `serviceType=${serviceTypeFilter}&`;
+      params.set("serviceType", serviceTypeFilter);
     }
+
     if (searchQuery) {
-      query += `searchQuery=${searchQuery}`;
+      params.set("searchQuery", searchQuery);
     }
-    router.push(query);
+
+    router.push(`/packages?${params.toString()}`);
+    setFetchKey(prev => prev + 1); // manual re-fetch trigger
   };
+
+  const displayValue = serviceTypeFilter || "all";
+
   return (
     <div className="flex flex-col gap-4 w-full max-w-2xl mx-auto mb-2 px-10">
       <div className="flex items-center gap-2">
-        <Select value={serviceTypeFilter} onValueChange={handleServiceType}>
+        <Select value={displayValue} onValueChange={handleServiceTypeChange}>
           <SelectTrigger className="w-[200px]">
-            <SelectValue placeholder="Select a Service" />
+            <SelectValue placeholder="All Services">
+              {displayValue === "all" ? "All Services" : displayValue}
+            </SelectValue>
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
+              <SelectItem value="all">All Services</SelectItem>
               <SelectItem value="Hajj">Hajj</SelectItem>
               <SelectItem value="Umrah">Umrah</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>
+
         <div className="relative flex-1">
           <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
           <Input
             type="search"
-            id="search"
-            placeholder="Search..."
+            placeholder="Search packages..."
             value={searchQuery}
             onChange={handleSearchQueryChange}
             className="pl-10"
+            onKeyPress={(e) => {
+              if (e.key === "Enter") handleFilterClick();
+            }}
           />
         </div>
-        <Button onClick={handleFilterClick} className="rounded-md">Search</Button>
+
+        <Button onClick={handleFilterClick} className="rounded-md">
+          Search
+        </Button>
       </div>
+
       <p className="text-sm text-muted-foreground">
-        Find the perfect service for your needs. Search by category or keyword.
+        Find the perfect package. Filter by service type or search by name.
       </p>
     </div>
   );

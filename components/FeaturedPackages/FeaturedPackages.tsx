@@ -1,34 +1,40 @@
-import { Button } from "@/components/ui/button"
-import type { Package } from "@/models/package"
-import { urlFor } from "@/lib/sanityImageBuilder"
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import type { Package } from "@/models/package";
+import { urlFor } from "@/lib/sanityImageBuilder";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { Badge } from "../ui/badge";
 
 interface FeaturedPackageProps {
-  featuredPackages: Package[]
+  featuredPackages: Package[];
 }
 
-export default function FeaturedPackages({ featuredPackages }: FeaturedPackageProps) {
+export default function FeaturedPackages({
+  featuredPackages,
+}: FeaturedPackageProps) {
   const formatPrice = (price: any) => {
     return new Intl.NumberFormat("en-NG", {
       style: "currency",
       currency: "NGN",
       minimumFractionDigits: 0,
-    }).format(price)
-  }
+    }).format(price);
+  };
 
   return (
     <div className="flex flex-col items-center justify-center gap-6 mb-12 md:px-20 px-4">
       <div className="text-center max-w-2xl">
-        <h1 className="text-3xl font-bold text-primary mb-2 font-roca">Our Special Packages</h1>
+        <h1 className="text-3xl font-bold text-primary mb-2 font-roca">
+          Our Special Packages
+        </h1>
         <p className="text-muted-foreground">
-          Experience exceptional service with our carefully curated special offers
+          Experience exceptional service with our carefully curated special
+          offers
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl">
         {featuredPackages.map((featuredPackage) => {
-          const bookingLink = featuredPackage.bookUrl || "/" // Use bookUrl, fallback to /reg-booking if not provided
+          const bookingLink = featuredPackage.bookUrl || "/";
 
           return (
             <div
@@ -40,33 +46,53 @@ export default function FeaturedPackages({ featuredPackages }: FeaturedPackagePr
                   {featuredPackage.serviceType}
                 </div>
                 <img
-                  src={urlFor(featuredPackage.coverImage).url() || "/placeholder.svg"}
+                  src={
+                    urlFor(featuredPackage.coverImage).url() ||
+                    "https://placehold.co/400x400"
+                  }
                   alt={`${featuredPackage.name} Service`}
                   className="w-full h-52 object-cover transition-transform duration-700 hover:scale-110"
                 />
+                <Badge variant="secondary" className="absolute top-3 left-3">
+                  {featuredPackage.serviceType}
+                </Badge>
               </div>
 
               <div className="p-5 flex flex-col flex-grow">
-                <h3 className="font-bold text-xl mb-3 text-foreground">{featuredPackage.name}</h3>
+                <h3 className="font-bold text-xl mb-3 text-foreground">
+                  {featuredPackage.name}
+                </h3>
 
                 <div className="space-y-2 mb-4">
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-muted-foreground">Fee Deposit</span>
-                    <span className="font-semibold text-foreground">{formatPrice(featuredPackage.price)}</span>
+                    <span className="font-semibold text-foreground">
+                      {formatPrice(featuredPackage.price)}
+                    </span>
                   </div>
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-muted-foreground">Registration</span>
-                    <span className="font-semibold text-foreground">{formatPrice(featuredPackage.reg)}</span>
+                    <span className="font-semibold text-foreground">
+                      {formatPrice(featuredPackage.reg)}
+                    </span>
                   </div>
                 </div>
 
                 <div className="mt-auto flex gap-2">
-                  <Link href={`/packages/${featuredPackage._id}`} className="flex-1">
+                  <Link
+                    href={`/packages/${featuredPackage._id}`}
+                    className="flex-1"
+                  >
                     <Button variant="outline" size="sm" className="w-full">
                       Details
                     </Button>
                   </Link>
-                  <Link href={bookingLink} className="flex-1" target="_blank" rel="noopener noreferrer">
+                  <Link
+                    href={bookingLink}
+                    className="flex-1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Button size="sm" className="w-full">
                       Book Now
                     </Button>
@@ -74,7 +100,7 @@ export default function FeaturedPackages({ featuredPackages }: FeaturedPackagePr
                 </div>
               </div>
             </div>
-          )
+          );
         })}
       </div>
 
@@ -85,5 +111,5 @@ export default function FeaturedPackages({ featuredPackages }: FeaturedPackagePr
         </Button>
       </Link>
     </div>
-  )
+  );
 }
