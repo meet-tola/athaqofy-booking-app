@@ -5,7 +5,7 @@ const Guide = () => {
   return (
     <div className="flex flex-col items-center justify-center w-full p-10 lg:p-20 space-y-8">
       <div className="text-center">
-        <h1 className="text-3xl font-bold text-primary">
+        <h1 className="text-3xl font-bold text-primary font-roca mb-2">
           Steps for the Registration
         </h1>
         <p className="text-gray-600">
@@ -49,11 +49,6 @@ const Guide = () => {
           </p>
         </div>
       </div>
-      <Link href="https://selar.co/athaqofyhajjregistration"legacyBehavior>
-      <a target="_blank" rel="noopener noreferrer"> 
-        <Button>Register Now</Button>
-      </a>
-      </Link>
     </div>
   );
 };

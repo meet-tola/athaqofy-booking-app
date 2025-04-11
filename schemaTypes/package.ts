@@ -32,6 +32,12 @@ const packageSchema = {
       validation: Rule => Rule.required().min(1000000).error('Minimum price is 1000000'),
     }),
     defineField({
+      name: 'bookUrl',
+      title: 'Booking URL',
+      type: 'url',
+      validation: Rule => Rule.required().uri({ scheme: ['http', 'https'] }).error('A valid booking URL is required'),
+    }),
+    defineField({
       name: 'reg',
       title: 'Registration',
       type: 'number',

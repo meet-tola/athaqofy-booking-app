@@ -13,7 +13,7 @@
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-select": "^2.1.1",
-    "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-slot": "^1.2.0",
     "@radix-ui/react-tabs": "^1.1.1",
     "@sanity/vision": "^3.49.0",
     "axios": "^1.7.2",
@@ -29,6 +29,7 @@
     "react-hot-toast": "^2.4.1",
     "react-paystack": "^5.0.0",
     "sanity": "^3.49.0",
+    "styled-components": "^6.1.17",
     "swr": "^2.2.5",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7"

@@ -3,10 +3,10 @@ import { GlobeIcon, BuildingIcon, HotelIcon } from "lucide-react"; // Assuming t
 export default function Component() {
   return (
     <section className="flex h-auto w-full items-center justify-center bg-muted my-10">
-      <div className="container grid grid-cols-1 gap-8 px-8 py-12 md:grid-cols-2 md:gap-12 lg:gap-16">
+      <div className="container grid grid-cols-1 gap-8 md:px-20 px-4 py-12 md:grid-cols-2 md:gap-12 lg:gap-16">
         <div className="flex flex-col justify-center space-y-6">
           <div className="space-y-4">
-            <h1 className="text-3xl font-bold text-primary">What we Offer</h1>
+            <h1 className="text-3xl font-bold text-primary font-roca">What we Offer</h1>
             <p className="text-gray-600">
               Athaqofy Global Services is a company certified by the Corporate
               Affairs Commission. We specialize in providing excellent and

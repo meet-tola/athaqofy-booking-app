@@ -22,7 +22,7 @@ const page = async () => {
       <Gallery />
       <Testimonials />
       <Newsletter /> 
-      <DonationDialog />
+      {/* <DonationDialog /> */}
     </>
   );
 };
