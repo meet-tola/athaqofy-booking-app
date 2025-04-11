@@ -15,8 +15,8 @@ const Footer = () => {
             priority
           />
         </Link>
-        <div className="w-2/3 block sm:flex text-sm mt-6 lg:mt-0">
-          <ul className="text-gray-700 list-none p-0 font-thin flex flex-col text-left w-full">
+        <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-6 text-sm mt-6 lg:mt-0">
+        <ul className="text-gray-700 list-none p-0 font-thin flex flex-col text-left w-full">
             <li className="inline-block py-2 px-3 text-primary uppercase font-medium tracking-wide">
               Services
             </li>

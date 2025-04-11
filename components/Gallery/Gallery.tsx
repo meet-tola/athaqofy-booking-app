@@ -21,16 +21,41 @@ export default function Gallery() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(0)
-  const slidesPerView = 4
+  const [windowWidth, setWindowWidth] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
+
+  // Responsive slides per view
+  const getSlidesPerView = () => {
+    if (windowWidth < 640) return 1   
+    if (windowWidth < 1024) return 3 
+    return 4                        
+  }
+
+  const [slidesPerView, setSlidesPerView] = useState(getSlidesPerView())
   const totalSlides = Math.ceil(galleryImages.length / slidesPerView)
+
+  // Handle window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth)
+      setSlidesPerView(getSlidesPerView())
+    }
+
+    // Set initial width
+    setWindowWidth(window.innerWidth)
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   // Auto-scroll carousel
   useEffect(() => {
+    if (isPaused) return
+
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % totalSlides)
     }, 5000)
     return () => clearInterval(interval)
-  }, [totalSlides])
+  }, [totalSlides, isPaused])
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides)
@@ -40,7 +65,7 @@ export default function Gallery() {
     setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides)
   }
 
-  const openLightbox = (index: any) => {
+  const openLightbox = (index: number) => {
     setLightboxIndex(index)
     setLightboxOpen(true)
   }
@@ -55,7 +80,7 @@ export default function Gallery() {
 
   // Handle keyboard navigation
   useEffect(() => {
-    const handleKeyDown = (e: any) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (!lightboxOpen) return
       if (e.key === "ArrowRight") nextImage()
       if (e.key === "ArrowLeft") prevImage()
@@ -67,7 +92,11 @@ export default function Gallery() {
   }, [lightboxOpen])
 
   return (
-    <div className="flex flex-col items-center justify-center gap-8 w-full mx-auto py-16 px-4 sm:px-6 lg:px-8">
+    <div 
+      className="flex flex-col items-center justify-center gap-8 w-full mx-auto py-16 px-4 sm:px-6 lg:px-8"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
       <div className="text-center max-w-2xl">
         <h1 className="text-3xl font-bold text-primary mb-2 font-roca">Our Gallery</h1>
         <p className="text-muted-foreground">
@@ -83,7 +112,10 @@ export default function Gallery() {
             style={{ transform: `translateX(-${currentSlide * 100}%)` }}
           >
             {Array.from({ length: totalSlides }).map((_, slideIndex) => (
-              <div key={slideIndex} className="w-full flex-shrink-0 grid grid-cols-2 md:grid-cols-4 gap-4 p-1">
+              <div 
+                key={slideIndex} 
+                className="w-full flex-shrink-0 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 p-1"
+              >
                 {galleryImages
                   .slice(slideIndex * slidesPerView, (slideIndex + 1) * slidesPerView)
                   .map((image, imageIndex) => {
@@ -112,35 +144,41 @@ export default function Gallery() {
           </div>
         </div>
 
-        {/* Carousel Controls */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-primary rounded-full p-2 shadow-md z-10 transition-all duration-200 hover:scale-110"
-          aria-label="Previous slide"
-        >
-          <ChevronLeft className="h-6 w-6" />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-primary rounded-full p-2 shadow-md z-10 transition-all duration-200 hover:scale-110"
-          aria-label="Next slide"
-        >
-          <ChevronRight className="h-6 w-6" />
-        </button>
-
-        {/* Slide Indicators */}
-        <div className="flex justify-center mt-4 gap-2">
-          {Array.from({ length: totalSlides }).map((_, index) => (
+        {/* Carousel Controls - Only show if there are multiple slides */}
+        {totalSlides > 1 && (
+          <>
             <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                currentSlide === index ? "bg-primary w-8" : "bg-primary/30"
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div>
+              onClick={prevSlide}
+              className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-primary rounded-full p-2 shadow-md z-10 transition-all duration-200 hover:scale-110"
+              aria-label="Previous slide"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-primary rounded-full p-2 shadow-md z-10 transition-all duration-200 hover:scale-110"
+              aria-label="Next slide"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
+          </>
+        )}
+
+        {/* Slide Indicators - Only show if there are multiple slides */}
+        {totalSlides > 1 && (
+          <div className="flex justify-center mt-4 gap-2">
+            {Array.from({ length: totalSlides }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  currentSlide === index ? "bg-primary w-8" : "bg-primary/30"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       {/* View More Button */}
@@ -161,32 +199,38 @@ export default function Gallery() {
               className="max-w-full max-h-[85vh] object-contain"
             />
 
-            {/* Navigation Buttons */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation()
-                prevImage()
-              }}
-              className="absolute left-4 bg-black/20 hover:bg-black/40 text-white rounded-full p-3 transition-all duration-200"
-              aria-label="Previous image"
-            >
-              <ChevronLeft className="h-6 w-6" />
-            </button>
-            <button
-              onClick={(e) => {
-                e.stopPropagation()
-                nextImage()
-              }}
-              className="absolute right-4 bg-black/20 hover:bg-black/40 text-white rounded-full p-3 transition-all duration-200"
-              aria-label="Next image"
-            >
-              <ChevronRight className="h-6 w-6" />
-            </button>
+            {/* Navigation Buttons - Only show if multiple images */}
+            {galleryImages.length > 1 && (
+              <>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    prevImage()
+                  }}
+                  className="absolute left-4 bg-black/20 hover:bg-black/40 text-white rounded-full p-3 transition-all duration-200"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft className="h-6 w-6" />
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    nextImage()
+                  }}
+                  className="absolute right-4 bg-black/20 hover:bg-black/40 text-white rounded-full p-3 transition-all duration-200"
+                  aria-label="Next image"
+                >
+                  <ChevronRight className="h-6 w-6" />
+                </button>
+              </>
+            )}
 
-            {/* Image Counter */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 text-white px-4 py-1 rounded-full text-sm">
-              {lightboxIndex + 1} / {galleryImages.length}
-            </div>
+            {/* Image Counter - Only show if multiple images */}
+            {galleryImages.length > 1 && (
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 text-white px-4 py-1 rounded-full text-sm">
+                {lightboxIndex + 1} / {galleryImages.length}
+              </div>
+            )}
           </div>
         </DialogContent>
       </Dialog>
