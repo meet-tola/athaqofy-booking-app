@@ -8,6 +8,7 @@ import AboutUs from "@/components/AboutUs/AboutUs";
 import Testimonials from "@/components/Testimonial/Testimonial";
 import Newsletter from "@/components/Newsletter/Newsletter";
 import DonationDialog from "@/components/Donation/DonationDialog";
+import { QuickDialog } from "@/components/QuickDialog/QuickDialog";
 
 const page = async () => {
   const packageData = await getFeaturedPackages();
@@ -23,6 +24,9 @@ const page = async () => {
       <Testimonials />
       <Newsletter /> 
       {/* <DonationDialog /> */}
+      <QuickDialog
+        
+      />
     </>
   );
 };
