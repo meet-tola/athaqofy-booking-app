@@ -1,26 +1,32 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { Globe, Heart, Star, Users } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent } from "@/components/ui/dialog"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { AudioTestimonial } from "@/components/audio-testimonial"
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Globe, Heart, Star, Users } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { AudioTestimonial } from "@/components/audio-testimonial";
 
 export function QuickDialog() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     // Show dialog after 7 seconds
     const timer = setTimeout(() => {
-      setOpen(true)
-    }, 7000)
+      setOpen(true);
+    }, 4000);
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -51,8 +57,13 @@ export function QuickDialog() {
             </div>
 
             <div className="mt-6">
-              <h2 className="text-2xl font-bold text-center mb-4">Why Athaqofy?</h2>
-              <Carousel className="w-full" opts={{ align: "start", loop: true }}>
+              <h2 className="text-2xl font-bold text-center mb-4">
+                Why Athaqofy?
+              </h2>
+              <Carousel
+                className="w-full"
+                opts={{ align: "start", loop: true }}
+              >
                 <CarouselContent>
                   {whyChooseUs.map((item, index) => (
                     <CarouselItem key={index}>
@@ -69,14 +80,19 @@ export function QuickDialog() {
                 </CarouselContent>
                 <div className="flex justify-center mt-4 space-x-2">
                   {whyChooseUs.map((_, index) => (
-                    <div key={index} className="w-2 h-2 rounded-full bg-gray-300" />
+                    <div
+                      key={index}
+                      className="w-2 h-2 rounded-full bg-gray-300"
+                    />
                   ))}
                 </div>
               </Carousel>
             </div>
 
             <div className="mt-6">
-              <h2 className="text-2xl font-bold text-center mb-4">Testimonials</h2>
+              <h2 className="text-2xl font-bold text-center mb-4">
+                Testimonials
+              </h2>
               <Tabs defaultValue="audio" className="w-full">
                 <TabsList className="grid w-full grid-cols-2">
                   <TabsTrigger value="audio">Audio</TabsTrigger>
@@ -85,35 +101,56 @@ export function QuickDialog() {
                 <TabsContent value="audio" className="mt-4">
                   <Carousel className="w-full">
                     <CarouselContent>
-                      {testimonials
-                        .filter((t) => t.audio)
-                        .map((testimonial, index) => (
-                          <CarouselItem key={index}>
-                            <div className="rounded-lg bg-gray-50 p-4">
-                              <div className="mb-2">
-                                <h4 className="font-medium">{testimonial.name}</h4>
-                              </div>
-                              <AudioTestimonial src={testimonial.audio || ""} />
-                            </div>
-                          </CarouselItem>
-                        ))}
-                    </CarouselContent>
-                  </Carousel>
-                </TabsContent>
-                <TabsContent value="text" className="mt-4">
-                  <Carousel className="w-full">
-                    <CarouselContent>
-                      {testimonials.map((testimonial, index) => (
+                      {audioTestimonials.map((testimonial, index) => (
                         <CarouselItem key={index}>
                           <div className="rounded-lg bg-gray-50 p-4">
                             <div className="mb-2">
-                              <h4 className="font-medium">{testimonial.name}</h4>
+                              <h4 className="font-medium">
+                                {testimonial.name}
+                              </h4>
                             </div>
-                            <p className="text-sm text-gray-600">{testimonial.text}</p>
+                            <AudioTestimonial src={testimonial.audio || ""} />
                           </div>
                         </CarouselItem>
                       ))}
                     </CarouselContent>
+                    <div className="flex justify-center mt-4 space-x-2">
+                      {audioTestimonials.map((_, index) => (
+                        <div
+                          key={index}
+                          className="w-2 h-2 rounded-full bg-gray-300"
+                        />
+                      ))}
+                    </div>
+                  </Carousel>
+                </TabsContent>
+
+                <TabsContent value="text" className="mt-4">
+                  <Carousel className="w-full">
+                    <CarouselContent>
+                      {textTestimonials.map((testimonial, index) => (
+                        <CarouselItem key={index}>
+                          <div className="rounded-lg bg-gray-50 p-4">
+                            <div className="mb-2">
+                              <h4 className="font-medium">
+                                {testimonial.name}
+                              </h4>
+                            </div>
+                            <p className="text-sm text-gray-600">
+                              {testimonial.text}
+                            </p>
+                          </div>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <div className="flex justify-center mt-4 space-x-2">
+                      {textTestimonials.map((_, index) => (
+                        <div
+                          key={index}
+                          className="w-2 h-2 rounded-full bg-gray-300"
+                        />
+                      ))}
+                    </div>
                   </Carousel>
                 </TabsContent>
               </Tabs>
@@ -142,18 +179,12 @@ export function QuickDialog() {
             </div> */}
 
             <div className="mt-6 text-center">
-              <Link href="https://youtu.be/txxKu8WhKwc?si=V8qXl0EOweq7ON1s" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="w-full bg-green-600 hover:bg-green-700 gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    stroke="none"
-                  >
-                    <path d="M17.6 6.2C16.8 5.4 15.8 5 14.7 5c-1.1 0-2.1.4-2.9 1.2l-.8.8-.8-.8c-.8-.8-1.8-1.2-2.9-1.2-1.1 0-2.1.4-2.9 1.2C3.4 7.8 3.4 10.4 5 12l7 7 6.8-6.8c1.6-1.6 1.6-4.2.2-5.8l-.4-.2z" />
-                  </svg>
+              <Link
+                href="https://wa.link/o5qxpp"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button size="lg" className="w-full">
                   WhatsApp Us Now
                 </Button>
               </Link>
@@ -162,7 +193,7 @@ export function QuickDialog() {
         </div>
       </DialogContent>
     </Dialog>
-  )
+  );
 }
 
 // Data moved inside the component file
@@ -179,7 +210,7 @@ const carouselItems = [
     title: "Mount Arafat",
     image: "/image/gallery/gallery10.jpg",
   },
-]
+];
 
 const whyChooseUs = [
   {
@@ -198,37 +229,34 @@ const whyChooseUs = [
     icon: Globe,
     text: "All-inclusive packages with no hidden fees",
   },
-]
+];
 
-const testimonials = [
+const audioTestimonials = [
   {
     name: "Alhaja Abdulsalam Ramota",
     avatar: "/placeholder.svg?height=100&width=100",
-    text: "Salam Aleikum sir, Thank you for giving me a life time experience I so much appreciate it sir and I'm looking forward to go again. May Almight Allah accept our prayers.",
+    text: "Salam Aleikum sir, Thank you for giving me a life time experience I so much appreciate it sir and I'm looking forward to go again. May Almighty Allah accept our prayers.",
     audio: "/audio/testimonial2.aac",
   },
   {
-    name: "Zainab Omar",
-    avatar: "/placeholder.svg?height=100&width=100",
-    text: "It was so good, nice memories of highly spiritual journey with lots to learn about Islam and our beloved prophet S.A.W and most especially we all stay together like family.",
-    audio: null,
-  },
-  {
-    name: "HAMZAT RILIWAN ",
+    name: "HAMZAT RILIWAN",
     avatar: "/placeholder.svg?height=100&width=100",
     text: "It was so good, nice memories of highly spiritual journey with lots to learn about Islam and our beloved prophet S.A.W and most especially we all stay together like family.",
     audio: "/audio/testimonial3.aac",
   },
+];
+
+const textTestimonials = [
   {
-    name: "Fatima Siddiqui",
+    name: "HAMZAT RILIWAN",
     avatar: "/placeholder.svg?height=100&width=100",
-    text: "As a first-time pilgrim, I appreciated the detailed guidance and support from the Athaqofy team.",
-    audio: "/testimonial3.mp3",
-  },
-  {
-    name: "Mohammed Ali",
-    avatar: "/placeholder.svg?height=100&width=100",
-    text: "The package was comprehensive and included everything I needed for a fulfilling pilgrimage.",
+    text: "Salam Aleikum sir, Thank you for giving me a life time experience I so much appreciate it sir and I'm looking forward to go again. May Almighty Allah accept our prayers.",
     audio: null,
   },
-]
+  {
+    name: "Alh. Qudus Lawal.",
+    avatar: "/placeholder.svg?height=100&width=100",
+    text: "It was so good, nice memories of highly spiritual journey with lots to learn about Islam and our beloved prophet S.A.W and most especially we all stay together like family",
+    audio: null,
+  },
+];
