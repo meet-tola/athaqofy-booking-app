@@ -3,7 +3,7 @@ import { Open_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
+import { Footer } from "../../components/Footer/Footer";
 import { Toaster } from "react-hot-toast";
 
 const openSans = Open_Sans({

@@ -1,150 +1,205 @@
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Youtube,
+  Mail,
+  Phone,
+} from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
-const Footer = () => {
+export function Footer() {
   return (
-    <footer className="bg-muted text-primary pt-12 pb-8 px-4">
-      <div className="mx-auto px-4 container overflow-hidden flex flex-col lg:flex-row justify-between">
-        <Link href="/" className="block mr-4 w-1/3">
-          <Image
-            src="/athaqofy-logo.svg"
-            alt="Athaqofy Logo"
-            className="dark:invert"
-            width={110}
-            height={28}
-            priority
-          />
-        </Link>
-        <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-6 text-sm mt-6 lg:mt-0">
-        <ul className="text-gray-700 list-none p-0 font-thin flex flex-col text-left w-full">
-            <li className="inline-block py-2 px-3 text-primary uppercase font-medium tracking-wide">
-              Services
-            </li>
-            <li>
-              <Link
-                href="#"
-                className="inline-block py-2 px-3 text-gray-500 hover:text-primary no-underline"
+    <footer className="bg-gray-900 text-white">
+      <div className="container mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Company Info */}
+          <div>
+            <Link href="/" className="block mr-4 w-1/3 mb-4">
+              <Image
+                src="/athaqofy-logo.svg"
+                alt="Athaqofy Logo"
+                className="filter invert brightness-0"
+                width={110}
+                height={28}
+                priority
+              />
+            </Link>
+
+            <p className="text-gray-300 mb-4 leading-relaxed">
+              Your trusted partner for sacred journeys. We provide comprehensive
+              Hajj and Umrah packages with exceptional service and spiritual
+              guidance.
+            </p>
+            <div className="flex space-x-4">
+              <a
+                href="https://facebook.com/athaqofy_"
+                className="text-gray-400 hover:text-purple-400 transition-colors"
               >
-                Hajj Packages
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#"
-                className="inline-block py-2 px-3 text-gray-500 hover:text-primary no-underline"
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a
+                href="https://twitter.com/athaqofy_"
+                className="text-gray-400 hover:text-purple-400 transition-colors"
               >
-                Umrah Packages
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#"
-                className="inline-block py-2 px-3 text-gray-500 hover:text-primary no-underline"
+                <Twitter className="w-5 h-5" />
+              </a>
+              <a
+                href="https://instagram.com/athaqofy_"
+                className="text-gray-400 hover:text-purple-400 transition-colors"
               >
-                Custom Packages
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#"
-                className="inline-block py-2 px-3 text-gray-500 hover:text-primary no-underline"
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a
+                href="https://youtube.com/@athaqofy_"
+                className="text-gray-400 hover:text-purple-400 transition-colors"
               >
-                FAQ
-              </Link>
-            </li>
-          </ul>
-          <ul className="text-gray-700 list-none p-0 font-thin flex flex-col text-left w-full">
-            <li className="inline-block py-2 px-3 text-primary uppercase font-medium tracking-wide">
-              About
-            </li>
-            <li>
-              <Link
-                href="#"
-                className="inline-block py-2 px-3 text-gray-500 hover:text-primary no-underline"
-              >
-                Our Story
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#"
-                className="inline-block py-2 px-3 text-gray-500 hover:text-primary no-underline"
-              >
-                Testimonials
-              </Link>
-            </li>
-          </ul>
-          <ul className="text-gray-700 list-none p-0 font-thin flex flex-col text-left w-full">
-            <li className="inline-block py-2 px-3 text-primary uppercase font-medium tracking-wide">
-              Resources
-            </li>
-            <li>
-              <Link
-                href="#"
-                className="inline-block py-2 px-3 text-gray-500 hover:text-primary no-underline"
-              >
-                Blog
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#"
-                className="inline-block py-2 px-3 text-gray-500 hover:text-primary no-underline"
-              >
-                Guides
-              </Link>
-            </li>
-          </ul>
-          <div className="text-gray-700 flex flex-col w-full">
-            <div className="inline-block py-2 px-3 text-primary uppercase font-medium tracking-wide">
-              Follow Us
+                <Youtube className="w-5 h-5" />
+              </a>
             </div>
-            <div className="flex pl-4 justify-start mt-2">
-              <Link
-                className="flex items-center text-gray-300 hover:text-primary mr-6 no-underline"
-                href="#"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  className="fill-current w-5 h-5"
-                  xmlns="http://www.w3.org/2000/svg"
+          </div>
+
+          {/* Services */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Our Services</h4>
+            <ul className="space-y-2 text-gray-300">
+              <li>
+                <a href="#" className="hover:text-purple-400 transition-colors">
+                  Hajj Packages
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-purple-400 transition-colors">
+                  Umrah Packages
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-purple-400 transition-colors">
+                  Group Tours
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-purple-400 transition-colors">
+                  VIP Services
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-purple-400 transition-colors">
+                  Visa Processing
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-purple-400 transition-colors">
+                  Travel Insurance
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <ul className="space-y-2 text-gray-300">
+              <li>
+                <a href="#" className="hover:text-purple-400 transition-colors">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#testimonials"
+                  className="hover:text-purple-400 transition-colors"
                 >
-                  <path d="M23.998 12c0-6.628-5.372-12-11.999-12C5.372 0 0 5.372 0 12c0 5.988 4.388 10.952 10.124 11.852v-8.384H7.078v-3.469h3.046V9.356c0-3.008 1.792-4.669 4.532-4.669 1.313 0 2.686.234 2.686.234v2.953H15.83c-1.49 0-1.955.925-1.955 1.874V12h3.328l-.532 3.469h-2.796v8.384c5.736-.9 10.124-5.864 10.124-11.853z" />
-                </svg>
-              </Link>
-              <Link
-                className="flex items-center text-gray-300 hover:text-primary mr-6 no-underline"
-                href="#"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  className="fill-current w-5 h-5"
-                  xmlns="http://www.w3.org/2000/svg"
+                  Testimonials
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#gallery"
+                  className="hover:text-purple-400 transition-colors"
                 >
-                  <path d="M23.954 4.569a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.691 8.094 4.066 6.13 1.64 3.161a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.061a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63a9.936 9.936 0 002.46-2.548l-.047-.02z" />
-                </svg>
-              </Link>
-              <Link
-                className="flex items-center text-gray-300 hover:text-primary no-underline"
-                href="#"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  className="fill-current w-5 h-5"
-                  xmlns="http://www.w3.org/2000/svg"
+                  Gallery
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#faq"
+                  className="hover:text-purple-400 transition-colors"
                 >
-                  <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-                </svg>
-              </Link>
+                  FAQ
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-purple-400 transition-colors">
+                  Guide
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-purple-400 transition-colors">
+                  Charity
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-purple-400 transition-colors">
+                  Privacy Policy
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
+            <div className="space-y-3 text-gray-300">
+              <div className="flex items-center gap-3">
+                <Phone className="w-4 h-4 text-purple-400" />
+                <span>08033040661, 070651745060</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Mail className="w-4 h-4 text-purple-400" />
+                <span>athaqofy@gmail.com</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-4 h-4 text-purple-400 mt-0.5">📍</div>
+                <span>
+                  101 Bale Street,
+                  <br />
+                  Olodi Apapa, Lagos, Nigeria.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-gray-800 mt-12 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-400 text-sm">
+              © 2024 Athaqofy. All rights reserved.
+            </p>
+            <div className="flex space-x-6 mt-4 md:mt-0">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-purple-400 text-sm transition-colors"
+              >
+                Terms of Service
+              </a>
+              <a
+                href="#"
+                className="text-gray-400 hover:text-purple-400 text-sm transition-colors"
+              >
+                Privacy Policy
+              </a>
+              <a
+                href="#"
+                className="text-gray-400 hover:text-purple-400 text-sm transition-colors"
+              >
+                Cookie Policy
+              </a>
             </div>
           </div>
         </div>
       </div>
-      <div className="mt-4 pt-6 text-gray-600 border-t border-gray-400 text-center">
-        © 2024 Athaqofy. All rights reserved.
-      </div>
     </footer>
   );
-};
-
-export default Footer;
+}
