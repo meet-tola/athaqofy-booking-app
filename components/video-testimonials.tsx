@@ -22,7 +22,7 @@ export function VideoTestimonials() {
       author: "",
       location: "",
       thumbnail: "/placeholder.svg?height=120&width=200",
-      videoId: "dQw4w9WgXcQ",
+      videoId: "txxKu8WhKwc",
       duration: "8:45",
     },
     {
@@ -31,7 +31,7 @@ export function VideoTestimonials() {
       author: "",
       location: "",
       thumbnail: "/placeholder.svg?height=120&width=200",
-      videoId: "dQw4w9WgXcQ",
+      videoId: "txxKu8WhKwc",
       duration: "5:30",
     },
     {
@@ -40,7 +40,7 @@ export function VideoTestimonials() {
       author: "",
       location: "",
       thumbnail: "/placeholder.svg?height=120&width=200",
-      videoId: "dQw4w9WgXcQ",
+      videoId: "txxKu8WhKwc",
       duration: "6:12",
     },
     {
@@ -49,7 +49,7 @@ export function VideoTestimonials() {
       author: "",
       location: "",
       thumbnail: "/placeholder.svg?height=120&width=200",
-      videoId: "dQw4w9WgXcQ",
+      videoId: "txxKu8WhKwc",
       duration: "3:20",
     },
     {
@@ -58,7 +58,7 @@ export function VideoTestimonials() {
       author: "",
       location: "",
       thumbnail: "/placeholder.svg?height=120&width=200",
-      videoId: "dQw4w9WgXcQ",
+      videoId: "txxKu8WhKwc",
       duration: "12:15",
     },
   ];
