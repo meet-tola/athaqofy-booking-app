@@ -1,13 +1,11 @@
 "use client"
 
 import { useRouter } from "next/navigation"
-import { Heart } from "lucide-react"
-import { cn } from "@/lib/utils"
 
 const charityMessages = [
   "Join our mission to help 1000+ families this year",
-  "We've donated $50,000 to local communities in 2023",
-  "Support our upcoming charity drive on June 15th",
+  "We've donated ₦5,000,000 to local communities in 2024",
+  "Support our upcoming charity drive on December",
   "100% of charity donations go directly to those in need",
   "Volunteer opportunities available - make a difference today",
 ]

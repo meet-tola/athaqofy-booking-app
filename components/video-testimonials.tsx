@@ -27,39 +27,40 @@ export function VideoTestimonials() {
     },
     {
       id: "2",
-      title: "Umrah Experience - Spiritual Journey",
+      title: "HAJJ EXPLANATION, ALAYE ISE HAJJ (Completing the Umrah)",
       author: "",
       location: "",
       thumbnail: "/placeholder.svg?height=120&width=200",
-      videoId: "txxKu8WhKwc",
-      duration: "5:30",
+      videoId: "mwL3AkaWaJg",
+      duration: "9:12",
     },
     {
       id: "3",
-      title: "Preparing for Your First Pilgrimage",
+      title: "Athaqofy Honours; Interview with Alhaja Saidat Sanni Oluwa",
       author: "",
       location: "",
       thumbnail: "/placeholder.svg?height=120&width=200",
-      videoId: "txxKu8WhKwc",
-      duration: "6:12",
+      videoId: "qB-TbX33lhs",
+      duration: "14:40",
     },
     {
       id: "4",
-      title: "Customer Testimonial - Life Changing",
+      title:
+        "Join a cause that will benefit you here and hereafter – Dignity in Death Update",
       author: "",
       location: "",
       thumbnail: "/placeholder.svg?height=120&width=200",
-      videoId: "txxKu8WhKwc",
-      duration: "3:20",
+      videoId: "O4f3SyZV-g8",
+      duration: "10:05",
     },
     {
       id: "5",
-      title: "Hajj Rituals Explained",
+      title: "HAJJ EXPLANATION, ALAYE ISE HAJJ (Hajj)",
       author: "",
       location: "",
       thumbnail: "/placeholder.svg?height=120&width=200",
-      videoId: "txxKu8WhKwc",
-      duration: "12:15",
+      videoId: "2LrmpB0Sy2Q",
+      duration: "11:03",
     },
   ];
 
@@ -99,17 +100,17 @@ export function VideoTestimonials() {
                   <CardContent className="p-4">
                     <div className="flex gap-4">
                       <div className="relative flex-shrink-0">
-                          <img
-                            src={`https://img.youtube.com/vi/${testimonial.videoId}/mqdefault.jpg`}
-                            alt={testimonial.title}
-                            className="w-20 h-12 object-cover rounded"
-                          />
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
-                              <Play className="w-3 h-3 text-white fill-white ml-0.5" />
-                            </div>
+                        <img
+                          src={`https://img.youtube.com/vi/${testimonial.videoId}/mqdefault.jpg`}
+                          alt={testimonial.title}
+                          className="w-20 h-12 object-cover rounded"
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
+                            <Play className="w-3 h-3 text-white fill-white ml-0.5" />
                           </div>
                         </div>
+                      </div>
                       <div className="flex-1 min-w-0">
                         <h4 className="font-semibold text-sm text-gray-900 line-clamp-2 mb-2">
                           {testimonial.title}
@@ -124,7 +125,7 @@ export function VideoTestimonials() {
 
           {/* Main Video Player - Right Side */}
           <div className="lg:col-span-2">
-              <Card className="overflow-hidden border border-gray-200">
+            <Card className="overflow-hidden border border-gray-200">
               <CardContent className="p-0">
                 <div className="aspect-video">
                   <iframe

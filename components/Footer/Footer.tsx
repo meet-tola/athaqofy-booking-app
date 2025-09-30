@@ -154,14 +154,31 @@ export function Footer() {
             <div className="space-y-3 text-gray-300">
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-purple-400" />
-                <span>08033040661, 070651745060</span>
+                <span>
+                  <a href="tel:08033040661" className="hover:underline">
+                    08033040661
+                  </a>
+                  ,{" "}
+                  <a href="tel:070651745060" className="hover:underline">
+                    070651745060
+                  </a>
+                </span>
               </div>
+
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-purple-400" />
-                <span>athaqofy@gmail.com</span>
+                <span>
+                  <a
+                    href="mailto:athaqofy@gmail.com"
+                    className="hover:underline"
+                  >
+                    athaqofy@gmail.com
+                  </a>
+                </span>
               </div>
+
               <div className="flex items-start gap-3">
-                <div className="w-4 h-4 text-purple-400 mt-0.5">📍</div>
+                <span className="w-4 h-4 text-purple-400 mt-0.5">📍</span>
                 <span>
                   101 Bale Street,
                   <br />

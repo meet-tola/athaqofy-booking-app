@@ -8,44 +8,46 @@ import {
 export function FAQ() {
   const faqs = [
     {
-      question: "What is included in your Hajj packages?",
+      question: "What services does Athaqofy Global Services provide?",
       answer:
-        "Our comprehensive Hajj packages include round-trip flights, 5-star accommodation near Haram, all meals, ground transportation, expert Islamic guides, visa processing, and 24/7 support throughout your journey. We also provide educational seminars before departure to prepare you spiritually and practically.",
+        "We specialize in Hajj and Umrah tours, visa processing, and hotel bookings. Our team ensures a seamless experience from documentation and travel arrangements to spiritual guidance and on-ground support.",
     },
     {
-      question: "How far in advance should I book my pilgrimage?",
+      question: "Are your Hajj and Umrah packages customizable?",
       answer:
-        "We recommend booking your Hajj at least 12-18 months in advance due to limited quotas and high demand. For Umrah, you can book 3-6 months ahead, though we also offer last-minute packages based on availability. Early booking ensures better accommodation options and competitive pricing.",
+        "Yes, we offer customizable packages to suit your preferences, group size, and budget. Whether you're traveling alone, as a family, or with a large group, we tailor the itinerary, accommodation, and services accordingly.",
     },
     {
-      question: "What documents do I need for Hajj or Umrah?",
+      question:
+        "How is Athaqofy different from other pilgrimage travel agencies?",
       answer:
-        "You'll need a valid passport (with at least 6 months validity), completed visa application, vaccination certificates (including meningitis and COVID-19), passport-sized photos, and proof of relationship for accompanying family members. We assist with all visa processing and documentation requirements.",
+        "Athaqofy combines certified expertise, spiritual care, and hospitality excellence. We are not just a travel provider—we are a faith-focused partner that supports you before, during, and after your journey with education, preparation, and personal guidance.",
     },
     {
-      question: "Are your guides qualified Islamic scholars?",
+      question: "Do you provide educational resources before the pilgrimage?",
       answer:
-        "Yes, all our guides are certified Islamic scholars with extensive knowledge of Hajj and Umrah rituals. They are fluent in multiple languages and have years of experience guiding pilgrims. They provide spiritual guidance, answer religious questions, and ensure you perform all rituals correctly.",
+        "Absolutely. We offer educational seminars, orientation videos, and printed materials to help you understand the spiritual and practical aspects of Hajj and Umrah. These are led by qualified scholars and experienced coordinators.",
     },
     {
-      question: "What if I have special dietary or medical requirements?",
+      question: "Can I see photos and videos from past pilgrimages?",
       answer:
-        "We accommodate all special dietary needs including halal, vegetarian, diabetic, and allergy-specific meals. For medical requirements, we coordinate with local healthcare providers and can arrange for medical assistance during your stay. Please inform us of any special needs during booking.",
+        "Yes, our gallery showcases powerful moments from past Hajj and Umrah journeys, and our video section includes testimonials, behind-the-scenes footage, and educational content to give you a real sense of what to expect.",
     },
     {
-      question: "Is travel insurance included in the package?",
+      question:
+        "Do you assist with visa processing for countries outside Nigeria?",
       answer:
-        "Yes, comprehensive travel and health insurance is included in all our packages. This covers medical emergencies, trip cancellation, lost luggage, and other unforeseen circumstances. We also provide additional coverage options for enhanced protection and peace of mind.",
+        "Yes, we assist clients both within and outside Nigeria. Our visa processing service includes complete documentation support, application submission, and embassy follow-ups, regardless of your location.",
     },
     {
-      question: "What is your cancellation and refund policy?",
+      question: "Do you offer support for elderly or first-time pilgrims?",
       answer:
-        "Our cancellation policy varies based on timing and circumstances. Cancellations made 90+ days before departure receive 80% refund, 60-89 days receive 60% refund, and 30-59 days receive 40% refund. Medical emergencies and visa rejections have special consideration. Full terms are provided upon booking.",
+        "Yes, our packages include personalized care for the elderly, first-timers, and those with special needs. Our guides provide step-by-step support to ensure all rituals are performed correctly and comfortably.",
     },
     {
-      question: "Do you offer group discounts or family packages?",
+      question: "How do I get started with booking a Hajj or Umrah trip?",
       answer:
-        "Yes, we offer attractive group discounts for 10+ people and special family packages for immediate family members. Group bookings receive additional benefits like dedicated group coordinators, customized itineraries, and exclusive group activities. Contact us for personalized group pricing.",
+        "You can get started by contacting us directly through our website or office. Our team will guide you through the process — from package selection and documentation to spiritual preparation and departure planning.",
     },
   ];
 

@@ -1,70 +1,60 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react"
-import Image from "next/image"
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
+import Image from "next/image";
 
 interface TextTestimonial {
-  id: string
-  name: string
-  location: string
-  image: string
-  text: string
+  id: string;
+  name: string;
+  location: string;
+  image: string;
+  text: string;
 }
 
 interface AudioTestimonial {
-  id: string
-  name: string
-  location: string
-  image: string
-  audioUrl: string
+  id: string;
+  name: string;
+  location: string;
+  image: string;
+  audioUrl: string;
 }
 
 interface VideoTestimonial {
-  id: string
-  title: string
-  videoId: string
+  id: string;
+  title: string;
+  videoId: string;
 }
 
 export function Testimonials() {
-  const [activeTab, setActiveTab] = useState<"text" | "audio" | "video">("text")
-  const [currentTextIndex, setCurrentTextIndex] = useState(0)
-  const [currentAudioIndex, setCurrentAudioIndex] = useState(0)
-  const [selectedVideo, setSelectedVideo] = useState<VideoTestimonial | null>(null)
-  const [playingAudio, setPlayingAudio] = useState<string | null>(null)
+  const [activeTab, setActiveTab] = useState<"text" | "audio" | "video">(
+    "text"
+  );
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const [currentAudioIndex, setCurrentAudioIndex] = useState(0);
+  const [selectedVideo, setSelectedVideo] = useState<VideoTestimonial | null>(
+    null
+  );
+  const [playingAudio, setPlayingAudio] = useState<string | null>(null);
 
   const textTestimonials: TextTestimonial[] = [
     {
       id: "1",
-      name: "Ahmed Hassan",
-      location: "California, USA",
+      name: "Alh. Qudus Lawal",
+      location: "Lagos, Nigeria",
       image: "/placeholder.svg?height=80&width=80",
-      text: "My journey with Athaqofy was absolutely transformative. The level of care, attention to detail, and spiritual guidance provided throughout the entire Hajj experience was exceptional. Every aspect was perfectly organized, allowing me to focus entirely on my spiritual journey.",
+      text: "Salam aleikum sir, Thank you for giving me a life time experience I so much appreciate it sir and I'm looking forward to go again. May Almighty Allah accept our prayers.",
     },
     {
       id: "2",
-      name: "Fatima Al-Zahra",
+      name: "Alh. Kamaldeen Raji",
       location: "London, UK",
       image: "/placeholder.svg?height=80&width=80",
-      text: "I cannot express enough gratitude for the seamless Umrah experience. From the moment we arrived in Mecca to our departure, everything was handled with professionalism and genuine care. The guides were knowledgeable and helped us understand every ritual deeply.",
+      text: "As-salam alaykunm warahamotullah. Sincerely I believed the entire staff strength of ATHAQOFY should be applauded for a yeoman's work. The engagement and assurance that everyone is fine in the Holy land especially the readily available administrative presence of Alh. Jamal, the I must be available for all Hujaj of Alhaji Abdur-Raheem not to forgetting the delicacies from Iya Mecca and Fauziyyah's tete-a-tete before picking your plates are all customer-centric and appreciated by me. May Allah elevate the Management and staffs of ATHAQOFY GLOBAL bijai Maolana Rosulullah.",
     },
-    {
-      id: "3",
-      name: "Omar Abdullah",
-      location: "Toronto, Canada",
-      image: "/placeholder.svg?height=80&width=80",
-      text: "Choosing Athaqofy for our family pilgrimage was the best decision we made. The accommodation was excellent, the food was delicious, and the spiritual atmosphere they created made our journey truly memorable. Highly recommended for anyone planning their pilgrimage.",
-    },
-    {
-      id: "4",
-      name: "Aisha Rahman",
-      location: "Sydney, Australia",
-      image: "/placeholder.svg?height=80&width=80",
-      text: "The attention to detail and personalized service exceeded all expectations. Our group coordinator was always available, and the educational sessions before departure prepared us perfectly for the spiritual significance of each ritual.",
-    },
-  ]
+  ];
 
   const audioTestimonials: AudioTestimonial[] = [
     {
@@ -88,7 +78,7 @@ export function Testimonials() {
       image: "/placeholder.svg?height=80&width=80",
       audioUrl: "/audio/testimonial3.mp3",
     },
-  ]
+  ];
 
   const videoTestimonials: VideoTestimonial[] = [
     {
@@ -116,55 +106,65 @@ export function Testimonials() {
       title: "Hajj Rituals Explained",
       videoId: "dQw4w9WgXcQ",
     },
-  ]
+  ];
 
   const nextTextSlide = () => {
-    const itemsPerPage = typeof window !== "undefined" && window.innerWidth >= 1024 ? 2 : 1
-    setCurrentTextIndex((prev) => (prev + 1) % Math.ceil(textTestimonials.length / itemsPerPage))
-  }
+    const itemsPerPage =
+      typeof window !== "undefined" && window.innerWidth >= 1024 ? 2 : 1;
+    setCurrentTextIndex(
+      (prev) => (prev + 1) % Math.ceil(textTestimonials.length / itemsPerPage)
+    );
+  };
 
   const prevTextSlide = () => {
-    const itemsPerPage = typeof window !== "undefined" && window.innerWidth >= 1024 ? 2 : 1
+    const itemsPerPage =
+      typeof window !== "undefined" && window.innerWidth >= 1024 ? 2 : 1;
     setCurrentTextIndex(
       (prev) =>
         (prev - 1 + Math.ceil(textTestimonials.length / itemsPerPage)) %
-        Math.ceil(textTestimonials.length / itemsPerPage),
-    )
-  }
+        Math.ceil(textTestimonials.length / itemsPerPage)
+    );
+  };
 
   const nextAudioSlide = () => {
-    const itemsPerPage = typeof window !== "undefined" && window.innerWidth >= 1024 ? 2 : 1
-    setCurrentAudioIndex((prev) => (prev + 1) % Math.ceil(audioTestimonials.length / itemsPerPage))
-  }
+    const itemsPerPage =
+      typeof window !== "undefined" && window.innerWidth >= 1024 ? 2 : 1;
+    setCurrentAudioIndex(
+      (prev) => (prev + 1) % Math.ceil(audioTestimonials.length / itemsPerPage)
+    );
+  };
 
   const prevAudioSlide = () => {
-    const itemsPerPage = typeof window !== "undefined" && window.innerWidth >= 1024 ? 2 : 1
+    const itemsPerPage =
+      typeof window !== "undefined" && window.innerWidth >= 1024 ? 2 : 1;
     setCurrentAudioIndex(
       (prev) =>
         (prev - 1 + Math.ceil(audioTestimonials.length / itemsPerPage)) %
-        Math.ceil(audioTestimonials.length / itemsPerPage),
-    )
-  }
+        Math.ceil(audioTestimonials.length / itemsPerPage)
+    );
+  };
 
-  const textItemsPerPage = typeof window !== "undefined" && window.innerWidth >= 1024 ? 2 : 1
+  const textItemsPerPage =
+    typeof window !== "undefined" && window.innerWidth >= 1024 ? 2 : 1;
   const visibleTextTestimonials = textTestimonials.slice(
     currentTextIndex * textItemsPerPage,
-    currentTextIndex * textItemsPerPage + textItemsPerPage,
-  )
+    currentTextIndex * textItemsPerPage + textItemsPerPage
+  );
 
-  const audioItemsPerPage = typeof window !== "undefined" && window.innerWidth >= 1024 ? 2 : 1
+  const audioItemsPerPage =
+    typeof window !== "undefined" && window.innerWidth >= 1024 ? 2 : 1;
   const visibleAudioTestimonials = audioTestimonials.slice(
     currentAudioIndex * audioItemsPerPage,
-    currentAudioIndex * audioItemsPerPage + audioItemsPerPage,
-  )
+    currentAudioIndex * audioItemsPerPage + audioItemsPerPage
+  );
 
   const toggleAudio = (audioId: string) => {
     if (playingAudio === audioId) {
-      setPlayingAudio(null)
+      setPlayingAudio(null);
     } else {
-      setPlayingAudio(audioId)
+      setPlayingAudio(audioId);
     }
-  }
+  };
 
   return (
     <section id="testimonials" className="py-24 bg-gray-50">
@@ -184,7 +184,9 @@ export function Testimonials() {
             <button
               onClick={() => setActiveTab("text")}
               className={`px-6 py-3 rounded-md font-medium transition-all ${
-                activeTab === "text" ? "bg-white text-gray-900 shadow-sm" : "text-gray-600 hover:text-gray-900"
+                activeTab === "text"
+                  ? "bg-white text-gray-900 shadow-sm"
+                  : "text-gray-600 hover:text-gray-900"
               }`}
             >
               Text Testimonials
@@ -192,7 +194,9 @@ export function Testimonials() {
             <button
               onClick={() => setActiveTab("audio")}
               className={`px-6 py-3 rounded-md font-medium transition-all ${
-                activeTab === "audio" ? "bg-white text-gray-900 shadow-sm" : "text-gray-600 hover:text-gray-900"
+                activeTab === "audio"
+                  ? "bg-white text-gray-900 shadow-sm"
+                  : "text-gray-600 hover:text-gray-900"
               }`}
             >
               Audio Testimonials
@@ -213,7 +217,10 @@ export function Testimonials() {
           <div className="relative max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {visibleTextTestimonials.map((testimonial) => (
-                <Card key={testimonial.id} className="border border-gray-200 hover:shadow-lg transition-shadow">
+                <Card
+                  key={testimonial.id}
+                  className="border border-gray-200 hover:shadow-lg transition-shadow"
+                >
                   <CardContent className="p-8">
                     <div className="flex items-start gap-4 mb-6">
                       <Image
@@ -224,11 +231,17 @@ export function Testimonials() {
                         className="rounded-full object-cover"
                       />
                       <div>
-                        <h4 className="font-semibold text-gray-900 text-lg">{testimonial.name}</h4>
-                        <p className="text-gray-600 text-sm">{testimonial.location}</p>
+                        <h4 className="font-semibold text-gray-900 text-lg">
+                          {testimonial.name}
+                        </h4>
+                        <p className="text-gray-600 text-sm">
+                          {testimonial.location}
+                        </p>
                       </div>
                     </div>
-                    <p className="text-gray-700 leading-relaxed italic">"{testimonial.text}"</p>
+                    <p className="text-gray-700 leading-relaxed italic">
+                      "{testimonial.text}"
+                    </p>
                   </CardContent>
                 </Card>
               ))}
@@ -274,7 +287,10 @@ export function Testimonials() {
           <div className="relative max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {visibleAudioTestimonials.map((testimonial) => (
-                <Card key={testimonial.id} className="border border-gray-200 hover:shadow-lg transition-shadow">
+                <Card
+                  key={testimonial.id}
+                  className="border border-gray-200 hover:shadow-lg transition-shadow"
+                >
                   <CardContent className="p-8">
                     <div className="flex items-start gap-4 mb-6">
                       <Image
@@ -285,8 +301,12 @@ export function Testimonials() {
                         className="rounded-full object-cover"
                       />
                       <div className="flex-1">
-                        <h4 className="font-semibold text-gray-900 text-lg">{testimonial.name}</h4>
-                        <p className="text-gray-600 text-sm">{testimonial.location}</p>
+                        <h4 className="font-semibold text-gray-900 text-lg">
+                          {testimonial.name}
+                        </h4>
+                        <p className="text-gray-600 text-sm">
+                          {testimonial.location}
+                        </p>
                       </div>
                     </div>
                     <div className="bg-gray-50 rounded-lg p-4">
@@ -356,9 +376,7 @@ export function Testimonials() {
             </div>
           </div>
         )}
-
-
       </div>
     </section>
-  )
+  );
 }
