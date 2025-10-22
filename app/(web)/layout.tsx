@@ -61,9 +61,7 @@ export default function RootLayout({
       <body>
         <Toaster />
         <main className="font-normal">
-          <Header />
           {children}
-          <Footer />
         </main>
       </body>
     </html>
