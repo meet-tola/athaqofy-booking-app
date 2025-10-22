@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, SetStateAction } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
@@ -45,7 +45,7 @@ export default function HeroCarousel() {
     return () => clearInterval(interval)
   }, [autoPlay, slides.length])
 
-  const goToSlide = (index) => {
+  const goToSlide = (index: SetStateAction<number>) => {
     setCurrentSlide(index)
     setAutoPlay(false)
   }
