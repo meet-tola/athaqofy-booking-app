@@ -39,7 +39,7 @@ export default function Header() {
             <a href="#programs" className="text-[oklch(0.15_0.02_240)] hover:text-[oklch(0.42_0.14_150)] transition">
               Programs
             </a>
-            <a href="/gallery" className="text-[oklch(0.15_0.02_240)] hover:text-[oklch(0.42_0.14_150)] transition">
+            <a href="/school/gallery" className="text-[oklch(0.15_0.02_240)] hover:text-[oklch(0.42_0.14_150)] transition">
               Gallery
             </a>
             <a href="#contact" className="text-[oklch(0.15_0.02_240)] hover:text-[oklch(0.42_0.14_150)] transition">
@@ -68,7 +68,7 @@ export default function Header() {
             <a href="#programs" className="block text-[oklch(0.15_0.02_240)] hover:text-[oklch(0.42_0.14_150)]">
               Programs
             </a>
-            <a href="/gallery" className="block text-[oklch(0.15_0.02_240)] hover:text-[oklch(0.42_0.14_150)]">
+            <a href="/school/gallery" className="block text-[oklch(0.15_0.02_240)] hover:text-[oklch(0.42_0.14_150)]">
               Gallery
             </a>
             <a href="#contact" className="block text-[oklch(0.15_0.02_240)] hover:text-[oklch(0.42_0.14_150)]">
