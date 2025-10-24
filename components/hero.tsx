@@ -24,7 +24,7 @@ export default function Hero() {
             }`}
           >
             <div className="inline-block bg-[oklch(0.42_0.14_150)]/10 text-[oklch(0.42_0.14_150)] px-4 py-2 rounded-full text-sm font-medium">
-              ✨ Excellence in Islamic Education
+              ✨ A Citadel of Moral and Academic Excellence
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[oklch(0.15_0.02_240)] leading-tight text-balance">
               Nurturing Minds, Strengthening Faith
