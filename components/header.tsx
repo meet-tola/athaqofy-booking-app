@@ -24,7 +24,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link
-            href="/"
+            href="/school"
             onClick={handleLogoClick}
             className="flex items-center gap-3 hover:scale-110 transition-transform duration-200 hover:drop-shadow-lg"
           >
@@ -33,7 +33,7 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            <a href="/" className="text-[oklch(0.15_0.02_240)] hover:text-[oklch(0.42_0.14_150)] transition">
+            <a href="/school" className="text-[oklch(0.15_0.02_240)] hover:text-[oklch(0.42_0.14_150)] transition">
               Home
             </a>
             <a href="#programs" className="text-[oklch(0.15_0.02_240)] hover:text-[oklch(0.42_0.14_150)] transition">
@@ -62,7 +62,7 @@ export default function Header() {
         {/* Mobile Navigation */}
         {isOpen && (
           <nav className="md:hidden pb-4 space-y-3">
-            <a href="/" className="block text-[oklch(0.15_0.02_240)] hover:text-[oklch(0.42_0.14_150)]">
+            <a href="/school" className="block text-[oklch(0.15_0.02_240)] hover:text-[oklch(0.42_0.14_150)]">
               Home
             </a>
             <a href="#programs" className="block text-[oklch(0.15_0.02_240)] hover:text-[oklch(0.42_0.14_150)]">
